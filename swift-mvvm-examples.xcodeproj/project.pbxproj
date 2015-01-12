@@ -9,16 +9,16 @@
 /* Begin PBXBuildFile section */
 		27B6056D1A636EC8000EEF76 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27BBC29E1A636C4B00E2BE8A /* ReactiveCocoa.framework */; };
 		27B6056E1A636EC8000EEF76 /* ReactiveCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 27BBC29E1A636C4B00E2BE8A /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		27B605891A637124000EEF76 /* RACSignal+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B605881A637124000EEF76 /* RACSignal+Extensions.swift */; };
+		27B605941A6374E2000EEF76 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27B6058E1A6374E2000EEF76 /* LaunchScreen.xib */; };
+		27B605951A6374E2000EEF76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B605901A6374E2000EEF76 /* Main.storyboard */; };
+		27B605961A6374E2000EEF76 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27B605921A6374E2000EEF76 /* Images.xcassets */; };
+		27B605A41A63751A000EEF76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6059B1A63751A000EEF76 /* AppDelegate.swift */; };
+		27B605A51A63751A000EEF76 /* RACSignal+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6059D1A63751A000EEF76 /* RACSignal+Extensions.swift */; };
+		27B605A61A63751A000EEF76 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B605A11A63751A000EEF76 /* DetailViewController.swift */; };
+		27B605A71A63751A000EEF76 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B605A21A63751A000EEF76 /* MasterViewController.swift */; };
 		27BBC2AC1A636C8E00E2BE8A /* ALView+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 27BBC2A41A636C8E00E2BE8A /* ALView+PureLayout.m */; };
 		27BBC2AD1A636C8E00E2BE8A /* NSArray+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 27BBC2A61A636C8E00E2BE8A /* NSArray+PureLayout.m */; };
 		27BBC2AE1A636C8E00E2BE8A /* NSLayoutConstraint+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 27BBC2A81A636C8E00E2BE8A /* NSLayoutConstraint+PureLayout.m */; };
-		27F5ED8E1A636ADB00944ADE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F5ED8D1A636ADB00944ADE /* AppDelegate.swift */; };
-		27F5ED901A636ADB00944ADE /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F5ED8F1A636ADB00944ADE /* MasterViewController.swift */; };
-		27F5ED921A636ADB00944ADE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F5ED911A636ADB00944ADE /* DetailViewController.swift */; };
-		27F5ED951A636ADB00944ADE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27F5ED931A636ADB00944ADE /* Main.storyboard */; };
-		27F5ED971A636ADB00944ADE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27F5ED961A636ADB00944ADE /* Images.xcassets */; };
-		27F5ED9A1A636ADB00944ADE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27F5ED981A636ADB00944ADE /* LaunchScreen.xib */; };
 		27F5EDA61A636ADB00944ADE /* swift_mvvm_examplesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F5EDA51A636ADB00944ADE /* swift_mvvm_examplesTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -111,7 +111,15 @@
 
 /* Begin PBXFileReference section */
 		27B605721A636EF2000EEF76 /* LlamaKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LlamaKit.xcodeproj; path = external/ReactiveCocoa/Carthage/Checkouts/LlamaKit/LlamaKit.xcodeproj; sourceTree = "<group>"; };
-		27B605881A637124000EEF76 /* RACSignal+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RACSignal+Extensions.swift"; sourceTree = "<group>"; };
+		27B6058F1A6374E2000EEF76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		27B605911A6374E2000EEF76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		27B605921A6374E2000EEF76 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		27B6059B1A63751A000EEF76 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		27B6059C1A63751A000EEF76 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		27B6059D1A63751A000EEF76 /* RACSignal+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RACSignal+Extensions.swift"; sourceTree = "<group>"; };
+		27B605A11A63751A000EEF76 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		27B605A21A63751A000EEF76 /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		27B605A81A637551000EEF76 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27BBC2921A636C4B00E2BE8A /* ReactiveCocoa.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactiveCocoa.xcodeproj; path = external/ReactiveCocoa/ReactiveCocoa.xcodeproj; sourceTree = "<group>"; };
 		27BBC2A31A636C8E00E2BE8A /* ALView+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ALView+PureLayout.h"; path = "external/PureLayout/Source/ALView+PureLayout.h"; sourceTree = "<group>"; };
 		27BBC2A41A636C8E00E2BE8A /* ALView+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ALView+PureLayout.m"; path = "external/PureLayout/Source/ALView+PureLayout.m"; sourceTree = "<group>"; };
@@ -122,15 +130,7 @@
 		27BBC2A91A636C8E00E2BE8A /* PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PureLayout.h; path = external/PureLayout/Source/PureLayout.h; sourceTree = "<group>"; };
 		27BBC2AA1A636C8E00E2BE8A /* PureLayout+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PureLayout+Internal.h"; path = "external/PureLayout/Source/PureLayout+Internal.h"; sourceTree = "<group>"; };
 		27BBC2AB1A636C8E00E2BE8A /* PureLayoutDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PureLayoutDefines.h; path = external/PureLayout/Source/PureLayoutDefines.h; sourceTree = "<group>"; };
-		27BBC2B21A636D2700E2BE8A /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		27F5ED881A636ADB00944ADE /* swift-mvvm-examples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swift-mvvm-examples.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		27F5ED8C1A636ADB00944ADE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		27F5ED8D1A636ADB00944ADE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		27F5ED8F1A636ADB00944ADE /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		27F5ED911A636ADB00944ADE /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		27F5ED941A636ADB00944ADE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		27F5ED961A636ADB00944ADE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		27F5ED991A636ADB00944ADE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		27F5ED9F1A636ADB00944ADE /* swift-mvvm-examplesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "swift-mvvm-examplesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		27F5EDA41A636ADB00944ADE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27F5EDA51A636ADB00944ADE /* swift_mvvm_examplesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swift_mvvm_examplesTests.swift; sourceTree = "<group>"; };
@@ -166,14 +166,55 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		27BBC2911A636C2800E2BE8A /* Resources */ = {
+		27B6058D1A6374E2000EEF76 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				27F5ED931A636ADB00944ADE /* Main.storyboard */,
-				27F5ED961A636ADB00944ADE /* Images.xcassets */,
-				27F5ED981A636ADB00944ADE /* LaunchScreen.xib */,
+				27B6058E1A6374E2000EEF76 /* LaunchScreen.xib */,
+				27B605901A6374E2000EEF76 /* Main.storyboard */,
+				27B605921A6374E2000EEF76 /* Images.xcassets */,
 			);
-			name = Resources;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		27B6059A1A63751A000EEF76 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				27B605A81A637551000EEF76 /* Info.plist */,
+				27B6059C1A63751A000EEF76 /* Bridging-Header.h */,
+				27B6059B1A63751A000EEF76 /* AppDelegate.swift */,
+				27B6059D1A63751A000EEF76 /* RACSignal+Extensions.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		27B6059E1A63751A000EEF76 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		27B6059F1A63751A000EEF76 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		27B605A01A63751A000EEF76 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				27B605A21A63751A000EEF76 /* MasterViewController.swift */,
+				27B605A11A63751A000EEF76 /* DetailViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		27B605A31A63751A000EEF76 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		27BBC2931A636C4B00E2BE8A /* Products */ = {
@@ -235,23 +276,14 @@
 		27F5ED8A1A636ADB00944ADE /* swift-mvvm-examples */ = {
 			isa = PBXGroup;
 			children = (
-				27B605881A637124000EEF76 /* RACSignal+Extensions.swift */,
-				27F5ED8D1A636ADB00944ADE /* AppDelegate.swift */,
-				27F5ED8F1A636ADB00944ADE /* MasterViewController.swift */,
-				27F5ED911A636ADB00944ADE /* DetailViewController.swift */,
-				27BBC2911A636C2800E2BE8A /* Resources */,
-				27F5ED8B1A636ADB00944ADE /* Supporting Files */,
+				27B6059A1A63751A000EEF76 /* App */,
+				27B6059E1A63751A000EEF76 /* Model */,
+				27B6059F1A63751A000EEF76 /* View */,
+				27B605A31A63751A000EEF76 /* ViewModel */,
+				27B605A01A63751A000EEF76 /* ViewController */,
+				27B6058D1A6374E2000EEF76 /* Resources */,
 			);
 			path = "swift-mvvm-examples";
-			sourceTree = "<group>";
-		};
-		27F5ED8B1A636ADB00944ADE /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				27F5ED8C1A636ADB00944ADE /* Info.plist */,
-				27BBC2B21A636D2700E2BE8A /* Bridging-Header.h */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		27F5EDA21A636ADB00944ADE /* swift-mvvm-examplesTests */ = {
@@ -422,9 +454,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27F5ED951A636ADB00944ADE /* Main.storyboard in Resources */,
-				27F5ED9A1A636ADB00944ADE /* LaunchScreen.xib in Resources */,
-				27F5ED971A636ADB00944ADE /* Images.xcassets in Resources */,
+				27B605951A6374E2000EEF76 /* Main.storyboard in Resources */,
+				27B605961A6374E2000EEF76 /* Images.xcassets in Resources */,
+				27B605941A6374E2000EEF76 /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,13 +474,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27F5ED921A636ADB00944ADE /* DetailViewController.swift in Sources */,
-				27F5ED901A636ADB00944ADE /* MasterViewController.swift in Sources */,
-				27B605891A637124000EEF76 /* RACSignal+Extensions.swift in Sources */,
-				27F5ED8E1A636ADB00944ADE /* AppDelegate.swift in Sources */,
+				27B605A41A63751A000EEF76 /* AppDelegate.swift in Sources */,
 				27BBC2AC1A636C8E00E2BE8A /* ALView+PureLayout.m in Sources */,
 				27BBC2AD1A636C8E00E2BE8A /* NSArray+PureLayout.m in Sources */,
+				27B605A61A63751A000EEF76 /* DetailViewController.swift in Sources */,
 				27BBC2AE1A636C8E00E2BE8A /* NSLayoutConstraint+PureLayout.m in Sources */,
+				27B605A71A63751A000EEF76 /* MasterViewController.swift in Sources */,
+				27B605A51A63751A000EEF76 /* RACSignal+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,20 +508,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		27F5ED931A636ADB00944ADE /* Main.storyboard */ = {
+		27B6058E1A6374E2000EEF76 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				27F5ED941A636ADB00944ADE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		27F5ED981A636ADB00944ADE /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				27F5ED991A636ADB00944ADE /* Base */,
+				27B6058F1A6374E2000EEF76 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		27B605901A6374E2000EEF76 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				27B605911A6374E2000EEF76 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -579,10 +611,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				INFOPLIST_FILE = "swift-mvvm-examples/Info.plist";
+				INFOPLIST_FILE = "swift-mvvm-examples/App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "swift-mvvm-examples/Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "swift-mvvm-examples/App/Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -591,10 +623,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				INFOPLIST_FILE = "swift-mvvm-examples/Info.plist";
+				INFOPLIST_FILE = "swift-mvvm-examples/App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "swift-mvvm-examples/Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "swift-mvvm-examples/App/Bridging-Header.h";
 			};
 			name = Release;
 		};

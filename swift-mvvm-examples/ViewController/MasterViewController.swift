@@ -11,7 +11,6 @@ import UIKit
 class MasterViewController: UITableViewController {
 
     var detailNavController: UINavigationController? = nil
-    var detailViewController: DetailViewController? = nil
     var objects = NSMutableArray()
 
 
