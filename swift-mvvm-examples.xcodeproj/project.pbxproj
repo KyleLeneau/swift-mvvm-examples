@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		27B6056D1A636EC8000EEF76 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27BBC29E1A636C4B00E2BE8A /* ReactiveCocoa.framework */; };
 		27B6056E1A636EC8000EEF76 /* ReactiveCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 27BBC29E1A636C4B00E2BE8A /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		27B605891A637124000EEF76 /* RACSignal+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B605881A637124000EEF76 /* RACSignal+Extensions.swift */; };
 		27BBC2AC1A636C8E00E2BE8A /* ALView+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 27BBC2A41A636C8E00E2BE8A /* ALView+PureLayout.m */; };
 		27BBC2AD1A636C8E00E2BE8A /* NSArray+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 27BBC2A61A636C8E00E2BE8A /* NSArray+PureLayout.m */; };
 		27BBC2AE1A636C8E00E2BE8A /* NSLayoutConstraint+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 27BBC2A81A636C8E00E2BE8A /* NSLayoutConstraint+PureLayout.m */; };
@@ -110,6 +111,7 @@
 
 /* Begin PBXFileReference section */
 		27B605721A636EF2000EEF76 /* LlamaKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LlamaKit.xcodeproj; path = external/ReactiveCocoa/Carthage/Checkouts/LlamaKit/LlamaKit.xcodeproj; sourceTree = "<group>"; };
+		27B605881A637124000EEF76 /* RACSignal+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RACSignal+Extensions.swift"; sourceTree = "<group>"; };
 		27BBC2921A636C4B00E2BE8A /* ReactiveCocoa.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactiveCocoa.xcodeproj; path = external/ReactiveCocoa/ReactiveCocoa.xcodeproj; sourceTree = "<group>"; };
 		27BBC2A31A636C8E00E2BE8A /* ALView+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ALView+PureLayout.h"; path = "external/PureLayout/Source/ALView+PureLayout.h"; sourceTree = "<group>"; };
 		27BBC2A41A636C8E00E2BE8A /* ALView+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ALView+PureLayout.m"; path = "external/PureLayout/Source/ALView+PureLayout.m"; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 		27F5ED8A1A636ADB00944ADE /* swift-mvvm-examples */ = {
 			isa = PBXGroup;
 			children = (
+				27B605881A637124000EEF76 /* RACSignal+Extensions.swift */,
 				27F5ED8D1A636ADB00944ADE /* AppDelegate.swift */,
 				27F5ED8F1A636ADB00944ADE /* MasterViewController.swift */,
 				27F5ED911A636ADB00944ADE /* DetailViewController.swift */,
@@ -441,6 +444,7 @@
 			files = (
 				27F5ED921A636ADB00944ADE /* DetailViewController.swift in Sources */,
 				27F5ED901A636ADB00944ADE /* MasterViewController.swift in Sources */,
+				27B605891A637124000EEF76 /* RACSignal+Extensions.swift in Sources */,
 				27F5ED8E1A636ADB00944ADE /* AppDelegate.swift in Sources */,
 				27BBC2AC1A636C8E00E2BE8A /* ALView+PureLayout.m in Sources */,
 				27BBC2AD1A636C8E00E2BE8A /* NSArray+PureLayout.m in Sources */,
