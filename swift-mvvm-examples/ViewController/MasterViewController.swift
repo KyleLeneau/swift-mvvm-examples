@@ -11,8 +11,9 @@ import UIKit
 class MasterViewController: UITableViewController {
 
     var detailNavController: UINavigationController? = nil
-    var objects = NSMutableArray()
-
+    let examples = [
+        Example(title: "Hello World", description: "Simple Textbox form that updates a UILabel")
+    ]
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -49,14 +50,16 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return objects.count
+        return examples.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
-
-        let object = objects[indexPath.row] as NSDate
-        cell.textLabel!.text = object.description
+        let example = examples[indexPath.row] as Example
+        
+        cell.textLabel!.text = example.title;
+        cell.detailTextLabel!.text = example.description
+        
         return cell
     }
 
