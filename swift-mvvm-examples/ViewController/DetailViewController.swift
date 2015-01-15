@@ -23,13 +23,8 @@ class DetailViewController: UIViewController {
         firstNameText.text = "Planet"
         lastNameText.text = "Earth"
         
-        firstNameText.rac_textSignal().subscribeNextAs { (newText: String) -> () in
-            self.viewModel.firstName.value = newText
-        }
-        
-        lastNameText.rac_textSignal().subscribeNextAs { (newText: String) -> () in
-            self.viewModel.lastName.value = newText
-        }
+        self.viewModel.firstName <~! firstNameText.rac_textColdSignal()
+        self.viewModel.lastName <~! lastNameText.rac_textColdSignal()
         
         self.viewModel.fullName.startWithSink { disposable in
             return Event.sink(next: { value in
@@ -37,8 +32,9 @@ class DetailViewController: UIViewController {
             })
         }
         
-//        var x = self.viewModel.fullName.asDeferredRACSignal(identity(a: String()))
+//        var x = self.viewModel.fullName.asDeferredRACSignal(identity)
 //        RAC(self.titleLabel as NSObject, "text").assignSignal(x)
+        
     }
 
     override func didReceiveMemoryWarning() {

@@ -7,15 +7,13 @@
 //
 
 import Foundation
+import ReactiveCocoa
 
 public class HelloWorldViewModel {
     public var firstName = ObservableProperty("")
     public var lastName = ObservableProperty("")
     
     public var fullName: ColdSignal<String> {
-        return firstName.values.combineLatestWith(lastName.values).map({ (first, last) -> String in
-            return "\(first) \(last)"
-        })
+        return combineLatest(firstName.values, lastName.values).map { return "\($0) \($1)" }
     }
-    
 }

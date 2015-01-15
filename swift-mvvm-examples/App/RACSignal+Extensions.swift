@@ -9,6 +9,13 @@
 import Foundation
 import ReactiveCocoa
 
+extension UITextField {
+    
+    func rac_textColdSignal() -> ColdSignal<String> {
+        return self.rac_textSignal().asColdSignal().map { $0 as String }
+    }
+}
+
 extension RACSignal {
     
     func subscribeNextAs<T>(nextClosure:(T) -> ()) ->() {
