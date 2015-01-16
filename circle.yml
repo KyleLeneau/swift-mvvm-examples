@@ -1,0 +1,11 @@
+## Customize the machine
+machine:
+  environment:
+    XCODE_SCHEME: swift-mvvm-examples
+    XCODE_PROJECT: swift-mvvm-examples.xcodeproj
+	
+## Customize checkout
+checkout:
+  post:
+    - git submodule sync
+    - git submodule update --init # use submodules
