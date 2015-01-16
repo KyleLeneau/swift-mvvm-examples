@@ -3,7 +3,7 @@ machine:
   environment:
     XCODE_SCHEME: swift-mvvm-examples
     XCODE_PROJECT: swift-mvvm-examples.xcodeproj
-	
+
 ## Customize checkout
 checkout:
   post:
