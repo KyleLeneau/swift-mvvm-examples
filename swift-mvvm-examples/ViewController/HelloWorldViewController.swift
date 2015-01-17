@@ -9,7 +9,7 @@
 import UIKit
 import ReactiveCocoa
 
-class DetailViewController: UIViewController {
+class HelloWorldViewController: UIViewController {
 
     private var viewModel = HelloWorldViewModel()
     

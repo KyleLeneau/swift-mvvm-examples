@@ -8,12 +8,18 @@
 
 import Foundation
 
+public enum ExampleType {
+    case HelloWorld
+}
+
 public class Example {
     
-    public let title: String!
-    public let description: String!
+    public let type: ExampleType
+    public let title: String
+    public let description: String
     
-    init(title: String, description: String) {
+    init(type: ExampleType, title: String, description: String) {
+        self.type = type
         self.title = title
         self.description = description
     }

@@ -11,7 +11,7 @@ import UIKit
 class MasterViewController: UITableViewController {
 
     let examples = [
-        Example(title: "Hello World", description: "Simple Textbox form that updates a UILabel")
+        Example(type: .HelloWorld, title: "Hello World", description: "Simple Textbox form that updates a UILabel")
     ]
 
     override func viewDidLoad() {
@@ -25,16 +25,7 @@ class MasterViewController: UITableViewController {
         self.tableView.rowHeight = 90.0
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     // MARK: - Table View
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return examples.count
@@ -47,7 +38,6 @@ class MasterViewController: UITableViewController {
         }
         
         let example = examples[indexPath.row] as Example
-        
         cell?.textLabel!.text = example.title;
         cell?.detailTextLabel!.text = example.description
         
@@ -56,14 +46,22 @@ class MasterViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let example = examples[indexPath.row] as Example
+        var detailVC: UIViewController?
         
-        let detailVC = DetailViewController()
-        detailVC.title = example.title
+        switch example.type {
+        case .HelloWorld:
+            detailVC = HelloWorldViewController()
+        default:
+            detailVC = EmptyViewController()
+        }
         
-        let nav = UINavigationController(rootViewController: detailVC)
-        nav.extendedLayoutIncludesOpaqueBars = false
-        nav.edgesForExtendedLayout = .None
-        self.splitViewController?.showDetailViewController(nav, sender: self)
+        if let vc = detailVC {
+            vc.title = example.title
+            let nav = UINavigationController(rootViewController: vc)
+            nav.extendedLayoutIncludesOpaqueBars = false
+            nav.edgesForExtendedLayout = .None
+            self.splitViewController?.showDetailViewController(nav, sender: self)
+        }
     }
 }
 

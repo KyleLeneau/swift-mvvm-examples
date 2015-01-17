@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2715B4B41A6A0ADC00B41887 /* EmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2715B4B31A6A0ADC00B41887 /* EmptyViewController.swift */; };
 		27B6056D1A636EC8000EEF76 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27BBC29E1A636C4B00E2BE8A /* ReactiveCocoa.framework */; };
 		27B6056E1A636EC8000EEF76 /* ReactiveCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 27BBC29E1A636C4B00E2BE8A /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		27B605941A6374E2000EEF76 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27B6058E1A6374E2000EEF76 /* LaunchScreen.xib */; };
 		27B605961A6374E2000EEF76 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27B605921A6374E2000EEF76 /* Images.xcassets */; };
 		27B605A41A63751A000EEF76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6059B1A63751A000EEF76 /* AppDelegate.swift */; };
 		27B605A51A63751A000EEF76 /* RACSignal+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6059D1A63751A000EEF76 /* RACSignal+Extensions.swift */; };
-		27B605A61A63751A000EEF76 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B605A11A63751A000EEF76 /* DetailViewController.swift */; };
+		27B605A61A63751A000EEF76 /* HelloWorldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B605A11A63751A000EEF76 /* HelloWorldViewController.swift */; };
 		27B605A71A63751A000EEF76 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B605A21A63751A000EEF76 /* MasterViewController.swift */; };
 		27B605AB1A63762A000EEF76 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B605AA1A63762A000EEF76 /* Example.swift */; };
 		27B605AD1A637ACF000EEF76 /* HelloWorldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B605AC1A637ACF000EEF76 /* HelloWorldViewModel.swift */; };
@@ -111,13 +112,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2715B4B31A6A0ADC00B41887 /* EmptyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyViewController.swift; sourceTree = "<group>"; };
 		27B605721A636EF2000EEF76 /* LlamaKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LlamaKit.xcodeproj; path = external/ReactiveCocoa/Carthage/Checkouts/LlamaKit/LlamaKit.xcodeproj; sourceTree = "<group>"; };
 		27B6058F1A6374E2000EEF76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		27B605921A6374E2000EEF76 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		27B6059B1A63751A000EEF76 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27B6059C1A63751A000EEF76 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		27B6059D1A63751A000EEF76 /* RACSignal+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RACSignal+Extensions.swift"; sourceTree = "<group>"; };
-		27B605A11A63751A000EEF76 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		27B605A11A63751A000EEF76 /* HelloWorldViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelloWorldViewController.swift; sourceTree = "<group>"; };
 		27B605A21A63751A000EEF76 /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		27B605A81A637551000EEF76 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27B605AA1A63762A000EEF76 /* Example.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Example.swift; path = "swift-mvvm-examples/Model/Example.swift"; sourceTree = SOURCE_ROOT; };
@@ -207,7 +209,8 @@
 			isa = PBXGroup;
 			children = (
 				27B605A21A63751A000EEF76 /* MasterViewController.swift */,
-				27B605A11A63751A000EEF76 /* DetailViewController.swift */,
+				2715B4B31A6A0ADC00B41887 /* EmptyViewController.swift */,
+				27B605A11A63751A000EEF76 /* HelloWorldViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -478,9 +481,10 @@
 			files = (
 				27B605A41A63751A000EEF76 /* AppDelegate.swift in Sources */,
 				27B605AD1A637ACF000EEF76 /* HelloWorldViewModel.swift in Sources */,
+				2715B4B41A6A0ADC00B41887 /* EmptyViewController.swift in Sources */,
 				27BBC2AC1A636C8E00E2BE8A /* ALView+PureLayout.m in Sources */,
 				27BBC2AD1A636C8E00E2BE8A /* NSArray+PureLayout.m in Sources */,
-				27B605A61A63751A000EEF76 /* DetailViewController.swift in Sources */,
+				27B605A61A63751A000EEF76 /* HelloWorldViewController.swift in Sources */,
 				27B605AB1A63762A000EEF76 /* Example.swift in Sources */,
 				27BBC2AE1A636C8E00E2BE8A /* NSLayoutConstraint+PureLayout.m in Sources */,
 				27B605A71A63751A000EEF76 /* MasterViewController.swift in Sources */,
