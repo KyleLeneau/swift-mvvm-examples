@@ -10,7 +10,6 @@
 		27B6056D1A636EC8000EEF76 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27BBC29E1A636C4B00E2BE8A /* ReactiveCocoa.framework */; };
 		27B6056E1A636EC8000EEF76 /* ReactiveCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 27BBC29E1A636C4B00E2BE8A /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		27B605941A6374E2000EEF76 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27B6058E1A6374E2000EEF76 /* LaunchScreen.xib */; };
-		27B605951A6374E2000EEF76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B605901A6374E2000EEF76 /* Main.storyboard */; };
 		27B605961A6374E2000EEF76 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27B605921A6374E2000EEF76 /* Images.xcassets */; };
 		27B605A41A63751A000EEF76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6059B1A63751A000EEF76 /* AppDelegate.swift */; };
 		27B605A51A63751A000EEF76 /* RACSignal+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6059D1A63751A000EEF76 /* RACSignal+Extensions.swift */; };
@@ -114,7 +113,6 @@
 /* Begin PBXFileReference section */
 		27B605721A636EF2000EEF76 /* LlamaKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LlamaKit.xcodeproj; path = external/ReactiveCocoa/Carthage/Checkouts/LlamaKit/LlamaKit.xcodeproj; sourceTree = "<group>"; };
 		27B6058F1A6374E2000EEF76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		27B605911A6374E2000EEF76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		27B605921A6374E2000EEF76 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		27B6059B1A63751A000EEF76 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27B6059C1A63751A000EEF76 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
@@ -174,7 +172,6 @@
 			isa = PBXGroup;
 			children = (
 				27B6058E1A6374E2000EEF76 /* LaunchScreen.xib */,
-				27B605901A6374E2000EEF76 /* Main.storyboard */,
 				27B605921A6374E2000EEF76 /* Images.xcassets */,
 			);
 			path = Resources;
@@ -460,7 +457,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27B605951A6374E2000EEF76 /* Main.storyboard in Resources */,
 				27B605961A6374E2000EEF76 /* Images.xcassets in Resources */,
 				27B605941A6374E2000EEF76 /* LaunchScreen.xib in Resources */,
 			);
@@ -522,14 +518,6 @@
 				27B6058F1A6374E2000EEF76 /* Base */,
 			);
 			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-		27B605901A6374E2000EEF76 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				27B605911A6374E2000EEF76 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

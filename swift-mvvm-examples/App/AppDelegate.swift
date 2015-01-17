@@ -13,13 +13,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        let splitViewController = self.window!.rootViewController as UISplitViewController
-        let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as UINavigationController
-        navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
+        
+        let splitViewController = UISplitViewController()
+        let masterNavVC = UINavigationController(rootViewController: MasterViewController())
+        masterNavVC.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
+        let detailNavVC = UINavigationController(rootViewController: DetailViewController())
+        splitViewController.viewControllers = [masterNavVC, detailNavVC]
         splitViewController.delegate = self
+        
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window!.rootViewController = splitViewController
+        self.window!.makeKeyAndVisible()
+        
         return true
     }
 
