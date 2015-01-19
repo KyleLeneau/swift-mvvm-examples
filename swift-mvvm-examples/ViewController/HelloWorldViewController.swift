@@ -51,15 +51,15 @@ class HelloWorldViewController: UIViewController {
         self.view.addSubview(self.titleLabel)
         self.titleLabel.autoPinToTopLayoutGuideOfViewController(self, withInset: 20.0)
         self.titleLabel.autoSetDimension(.Height, toSize: 60.0)
-        self.titleLabel.autoPinEdgeToSuperviewEdge(.Left, withInset: 10.0)
-        self.titleLabel.autoPinEdgeToSuperviewEdge(.Right, withInset: 10.0)
+        self.titleLabel.autoPinEdgeToSuperviewMargin(.Left)
+        self.titleLabel.autoPinEdgeToSuperviewMargin(.Right)
         
         self.firstNameLabel = UILabel(forAutoLayout: ())
         self.firstNameLabel.text = "First Name:"
         self.firstNameLabel.textAlignment = .Left
         self.view.addSubview(self.firstNameLabel)
         self.firstNameLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: self.titleLabel, withOffset: 15.0)
-        self.firstNameLabel.autoPinEdgeToSuperviewEdge(.Left, withInset: 10.0)
+        self.firstNameLabel.autoPinEdgeToSuperviewMargin(.Left)
         self.firstNameLabel.autoSetDimension(.Width, toSize: 100.0)
         
         self.firstNameText = UITextField(forAutoLayout: ())!
@@ -67,14 +67,14 @@ class HelloWorldViewController: UIViewController {
         self.view.addSubview(self.firstNameText)
         self.firstNameText.autoPinEdge(.Top, toEdge: .Bottom, ofView: self.titleLabel, withOffset: 10.0)
         self.firstNameText.autoPinEdge(.Left, toEdge: .Right, ofView: self.firstNameLabel, withOffset: 10.0)
-        self.firstNameText.autoPinEdgeToSuperviewEdge(.Right, withInset: 10.0)
+        self.firstNameText.autoPinEdgeToSuperviewMargin(.Right)
 
         self.lastNameLabel = UILabel(forAutoLayout: ())
         self.lastNameLabel.text = "Last Name:"
         self.lastNameLabel.textAlignment = .Left
         self.view.addSubview(self.lastNameLabel)
         self.lastNameLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: self.firstNameLabel, withOffset: 20.0)
-        self.lastNameLabel.autoPinEdgeToSuperviewEdge(.Left, withInset: 10.0)
+        self.lastNameLabel.autoPinEdgeToSuperviewMargin(.Left)
         self.lastNameLabel.autoSetDimension(.Width, toSize: 100.0)
         
         self.lastNameText = UITextField(forAutoLayout: ())!
@@ -82,7 +82,7 @@ class HelloWorldViewController: UIViewController {
         self.view.addSubview(self.lastNameText)
         self.lastNameText.autoPinEdge(.Top, toEdge: .Bottom, ofView: self.firstNameText, withOffset: 10.0)
         self.lastNameText.autoPinEdge(.Left, toEdge: .Right, ofView: self.lastNameLabel, withOffset: 10.0)
-        self.lastNameText.autoPinEdgeToSuperviewEdge(.Right, withInset: 10.0)
+        self.lastNameText.autoPinEdgeToSuperviewMargin(.Right)
     }
 }
 

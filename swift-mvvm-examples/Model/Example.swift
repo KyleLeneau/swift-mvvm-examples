@@ -10,6 +10,7 @@ import Foundation
 
 public enum ExampleType {
     case HelloWorld
+    case ClickCounter
 }
 
 public class Example {
