@@ -25,15 +25,29 @@ class HelloWorldViewController: UIViewController {
         setupBindings()
     }
 
-    func setupBindings() {
+    private func setupBindings() {
         firstNameText.text = "Planet"
         lastNameText.text = "Earth"
         
-        self.viewModel.firstName <~! firstNameText.rac_textColdSignal()
-        self.viewModel.lastName <~! lastNameText.rac_textColdSignal()
+        firstNameText.rac_textSignalProducer().start(next: { s in
+            self.viewModel.firstName.value = s
+        })
+
+        lastNameText.rac_textSignalProducer().start(next: { s in
+            self.viewModel.lastName.value = s
+        })
+
+        self.viewModel.fullName.start(next: { s in
+            self.titleLabel.text = s
+        })
         
-        var x = self.viewModel.fullName.map({ "Hello, \($0)" as AnyObject? }).asDeferredRACSignal(identity)
-        RAC(self.titleLabel as NSObject, "text").assignSignal(x)
+        
+        // THESE ARE BROKEN RIGHT NOW IN RAC
+//        self.viewModel.firstName <~! firstNameText.rac_textColdSignal()
+//        self.viewModel.lastName <~! lastNameText.rac_textColdSignal()
+//        
+//        var x = self.viewModel.fullName.map({ "Hello, \($0)" as AnyObject? }).asDeferredRACSignal(identity)
+//        RAC(self.titleLabel as NSObject, "text").assignSignal(x)
     }
     
     
@@ -41,7 +55,7 @@ class HelloWorldViewController: UIViewController {
     
     
     
-    func setupUI() {
+    private func setupUI() {
         self.view.backgroundColor = UIColor.whiteColor()
         
         self.titleLabel = UILabel(forAutoLayout: ())!

@@ -25,12 +25,12 @@ class ClickCounterViewController: UIViewController {
     }
     
     func setupBindings() {
-        self.viewModel = ClickCounterViewModel()
-        
-        var x = self.viewModel.clickCountDisplay.map({ $0 as AnyObject? }).asDeferredRACSignal(identity)
-        RAC(self.clickCountLabel as NSObject, "text").assignSignal(x)
-        
-        self.clickButton.addTarget(self.viewModel.registerClickCocoaAction, action: self.viewModel.registerClickCocoaAction.selector, forControlEvents: .TouchUpInside)
+//        self.viewModel = ClickCounterViewModel()
+//        
+//        var x = self.viewModel.clickCountDisplay.map({ $0 as AnyObject? }).asDeferredRACSignal(identity)
+//        RAC(self.clickCountLabel as NSObject, "text").assignSignal(x)
+//        
+//        self.clickButton.addTarget(self.viewModel.registerClickCocoaAction, action: self.viewModel.registerClickCocoaAction.selector, forControlEvents: .TouchUpInside)
         
 //        self.clickButton.rac_command = self.viewModel.registerClickAction.asRACCommand(<#evidence: Action<Void, Void> -> Action<AnyObject?, Output?>##Action<Void, Void> -> Action<AnyObject?, Output?>#>)
     }

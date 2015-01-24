@@ -11,8 +11,9 @@ import ReactiveCocoa
 
 extension UITextField {
     
-    func rac_textColdSignal() -> ColdSignal<String> {
-        return self.rac_textSignal().asColdSignal().map { $0 as String }
+    func rac_textSignalProducer() -> SignalProducer<String, NSError> {
+        return self.rac_textSignal().asSignalProducer()
+            |> map({ $0 as String })
     }
 }
 

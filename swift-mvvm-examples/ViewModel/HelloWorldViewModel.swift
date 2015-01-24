@@ -10,10 +10,12 @@ import Foundation
 import ReactiveCocoa
 
 public class HelloWorldViewModel {
-    public let firstName = ObservableProperty("")
-    public let lastName = ObservableProperty("")
+    public let firstName = MutableProperty("")
+    public let lastName = MutableProperty("")
     
-    public var fullName: ColdSignal<String> {
-        return combineLatest(firstName.values, lastName.values).map { return "\($0) \($1)" }
+    public var fullName: SignalProducer<String, NoError> {
+        return firstName.producer
+            |> combineLatestWith(lastName.producer)
+            |> map({ return "Hello, \($0) \($1)" })
     }
 }
