@@ -9,46 +9,44 @@
 import Foundation
 import ReactiveCocoa
 
-public class ClickCounterViewModel {
+public final class ClickCounterViewModel {
 
-//    public let numberOfClicks = ObservableProperty(0)
-//    
-//    public var clickEnabled: HotSignal<Bool> {
-//        return numberOfClicks.values.startMulticasted(errorHandler: nil, completionHandler: { () -> () in
-//            
-//        }).map { return $0 >= 3 }
-//    }
-//    
-//    public var clickCountDisplay: ColdSignal<String> {
-//        return numberOfClicks.values.map { return "You've clicked \($0) times" }
-//    }
-//    
-//    public var registerClickAction: Action<Void, Void> {
-//        return Action<Void, Void>(enabledIf: self.clickEnabled, { () in
-//            return ColdSignal<Void>.empty()
-//        })
-//    }
-//    
-//    public func registerClick() {
-//        self.numberOfClicks.value = self.numberOfClicks.value + 1
-//    }
-//    
-//    public var registerClickCocoaAction: CocoaAction {
-//        func action() -> ColdSignal<Void> {
-//            return ColdSignal<Void>.empty()
-//        }
-//        
-//        var a = Action<(), Void>(action)
-//        return CocoaAction(a)
-//    }
-
-//    public var registerClickAction: Action<Void, Void> {
-//        return CocoaAction(Action<Void, Void>(enabledIf: self.clickEnabled, { () in
-//            return ColdSignal<Void>.empty()
-//        }))
-//    }
-
-//        public func resetClicks() {
-//        self.numberOfClicks.value = 0
-//    }    
+    public let numberOfClicks = MutableProperty(0)
+    
+    public var clickEnabled: PropertyOf<Bool> {
+        let property = MutableProperty(false)
+        
+        func enabled(x: Int) -> Bool {
+            return x <= 3
+        }
+        
+        numberOfClicks.producer
+            |> map(enabled)
+            // FIXME: Workaround for <~ being disabled on SignalProducers.
+            |> startWithSignal { signal, disposable in
+                let bindDisposable = property <~ signal
+                disposable.addDisposable(bindDisposable)
+            }
+        
+        return PropertyOf(property)
+    }
+    
+    public var clickCountDisplay: SignalProducer<String, NoError> {
+        return numberOfClicks.producer
+            |> map { return "You've clicked \($0) times" }
+    }
+    
+    public var registerClickAction: Action<AnyObject?, AnyObject, NSError> {
+        return Action<AnyObject?, AnyObject, NSError>(enabledIf: clickEnabled, { x in
+            self.numberOfClicks.value += 1
+            return SignalProducer.empty
+        })
+    }
+    
+    public var resetClicksAction: Action<AnyObject?, AnyObject, NSError> {
+        return Action<AnyObject?, AnyObject, NSError>({ x in
+            self.numberOfClicks.value = 0
+            return SignalProducer.empty
+        })
+    }   
 }

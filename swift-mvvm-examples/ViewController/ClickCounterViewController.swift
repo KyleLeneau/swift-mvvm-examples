@@ -11,7 +11,7 @@ import ReactiveCocoa
 
 class ClickCounterViewController: UIViewController {
     
-    private var viewModel: ClickCounterViewModel!
+    private var viewModel = ClickCounterViewModel()
     
     var clickCountLabel: UILabel!
     var clickButton: UIButton!
@@ -25,15 +25,17 @@ class ClickCounterViewController: UIViewController {
     }
     
     func setupBindings() {
-//        self.viewModel = ClickCounterViewModel()
-//        
-//        var x = self.viewModel.clickCountDisplay.map({ $0 as AnyObject? }).asDeferredRACSignal(identity)
-//        RAC(self.clickCountLabel as NSObject, "text").assignSignal(x)
-//        
-//        self.clickButton.addTarget(self.viewModel.registerClickCocoaAction, action: self.viewModel.registerClickCocoaAction.selector, forControlEvents: .TouchUpInside)
+        self.viewModel.clickCountDisplay.start(next: { s in
+            self.clickCountLabel.text = s
+        })
         
-//        self.clickButton.rac_command = self.viewModel.registerClickAction.asRACCommand(<#evidence: Action<Void, Void> -> Action<AnyObject?, Output?>##Action<Void, Void> -> Action<AnyObject?, Output?>#>)
+        var clickCommand = ReactiveCocoa.asRACCommand(self.viewModel.registerClickAction)
+        self.clickButton.rac_command = clickCommand
+        
+        var resetCommand = ReactiveCocoa.asRACCommand(self.viewModel.resetClicksAction)
+        self.resetButton.rac_command = resetCommand
     }
+
     
     func setupUI() {
         self.view.backgroundColor = UIColor.whiteColor()
