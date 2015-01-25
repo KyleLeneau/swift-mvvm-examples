@@ -23,6 +23,8 @@
 		27BBC2AC1A636C8E00E2BE8A /* ALView+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 27BBC2A41A636C8E00E2BE8A /* ALView+PureLayout.m */; };
 		27BBC2AD1A636C8E00E2BE8A /* NSArray+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 27BBC2A61A636C8E00E2BE8A /* NSArray+PureLayout.m */; };
 		27BBC2AE1A636C8E00E2BE8A /* NSLayoutConstraint+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 27BBC2A81A636C8E00E2BE8A /* NSLayoutConstraint+PureLayout.m */; };
+		27DDBAAC1A74B45A004B4ADD /* SimpleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DDBAAB1A74B45A004B4ADD /* SimpleListViewModel.swift */; };
+		27DDBAB51A74B491004B4ADD /* SimpleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DDBAB41A74B491004B4ADD /* SimpleListViewController.swift */; };
 		27F5EDA61A636ADB00944ADE /* swift_mvvm_examplesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F5EDA51A636ADB00944ADE /* swift_mvvm_examplesTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -138,6 +140,8 @@
 		27BBC2A91A636C8E00E2BE8A /* PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PureLayout.h; path = external/PureLayout/Source/PureLayout.h; sourceTree = "<group>"; };
 		27BBC2AA1A636C8E00E2BE8A /* PureLayout+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PureLayout+Internal.h"; path = "external/PureLayout/Source/PureLayout+Internal.h"; sourceTree = "<group>"; };
 		27BBC2AB1A636C8E00E2BE8A /* PureLayoutDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PureLayoutDefines.h; path = external/PureLayout/Source/PureLayoutDefines.h; sourceTree = "<group>"; };
+		27DDBAAB1A74B45A004B4ADD /* SimpleListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleListViewModel.swift; sourceTree = "<group>"; };
+		27DDBAB41A74B491004B4ADD /* SimpleListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleListViewController.swift; sourceTree = "<group>"; };
 		27F5ED881A636ADB00944ADE /* swift-mvvm-examples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swift-mvvm-examples.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		27F5ED9F1A636ADB00944ADE /* swift-mvvm-examplesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "swift-mvvm-examplesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		27F5EDA41A636ADB00944ADE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -216,6 +220,7 @@
 				2715B4B31A6A0ADC00B41887 /* EmptyViewController.swift */,
 				27B605A11A63751A000EEF76 /* HelloWorldViewController.swift */,
 				2715B4B71A6A1EEF00B41887 /* ClickCounterViewController.swift */,
+				27DDBAB41A74B491004B4ADD /* SimpleListViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -225,6 +230,7 @@
 			children = (
 				27B605AC1A637ACF000EEF76 /* HelloWorldViewModel.swift */,
 				2715B4B51A6A1EDE00B41887 /* ClickCounterViewModel.swift */,
+				27DDBAAB1A74B45A004B4ADD /* SimpleListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -485,10 +491,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27DDBAB51A74B491004B4ADD /* SimpleListViewController.swift in Sources */,
 				2715B4B81A6A1EEF00B41887 /* ClickCounterViewController.swift in Sources */,
 				27B605A41A63751A000EEF76 /* AppDelegate.swift in Sources */,
 				27B605AD1A637ACF000EEF76 /* HelloWorldViewModel.swift in Sources */,
 				2715B4B41A6A0ADC00B41887 /* EmptyViewController.swift in Sources */,
+				27DDBAAC1A74B45A004B4ADD /* SimpleListViewModel.swift in Sources */,
 				27BBC2AC1A636C8E00E2BE8A /* ALView+PureLayout.m in Sources */,
 				27BBC2AD1A636C8E00E2BE8A /* NSArray+PureLayout.m in Sources */,
 				27B605A61A63751A000EEF76 /* HelloWorldViewController.swift in Sources */,

@@ -12,7 +12,8 @@ class MasterViewController: UITableViewController {
 
     let examples = [
         Example(type: .HelloWorld, title: "Hello World", description: "Simple Textbox form that updates a UILabel"),
-        Example(type: .ClickCounter, title: "Click Counter", description: "Tracking dependencies and enabling inputs")
+        Example(type: .ClickCounter, title: "Click Counter", description: "Tracking dependencies and enabling inputs"),
+        Example(type: .SimpleList, title: "Simple List", description: "This example demonstrates binding to an array of values.")
     ]
 
     override func viewDidLoad() {
@@ -54,6 +55,8 @@ class MasterViewController: UITableViewController {
             detailVC = HelloWorldViewController()
         case .ClickCounter:
             detailVC = ClickCounterViewController()
+        case .SimpleList:
+            detailVC = SimpleListViewController()
         default:
             detailVC = EmptyViewController()
         }

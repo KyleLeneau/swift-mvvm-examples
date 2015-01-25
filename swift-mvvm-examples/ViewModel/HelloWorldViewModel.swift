@@ -10,6 +10,7 @@ import Foundation
 import ReactiveCocoa
 
 public class HelloWorldViewModel {
+    
     public let firstName = MutableProperty("")
     public let lastName = MutableProperty("")
     

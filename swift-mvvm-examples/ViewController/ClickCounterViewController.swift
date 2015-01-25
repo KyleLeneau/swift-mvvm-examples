@@ -29,9 +29,11 @@ class ClickCounterViewController: UIViewController {
             self.clickCountLabel.text = s
         })
         
+        // TODO: button is not being disabled
         var clickCommand = ReactiveCocoa.asRACCommand(self.viewModel.registerClickAction)
         self.clickButton.rac_command = clickCommand
         
+        // TODO: button is not being toggled
         var resetCommand = ReactiveCocoa.asRACCommand(self.viewModel.resetClicksAction)
         self.resetButton.rac_command = resetCommand
     }

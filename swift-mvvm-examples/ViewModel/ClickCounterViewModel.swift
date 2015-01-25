@@ -9,7 +9,7 @@
 import Foundation
 import ReactiveCocoa
 
-public final class ClickCounterViewModel {
+public class ClickCounterViewModel {
 
     public let numberOfClicks = MutableProperty(0)
     

@@ -11,6 +11,7 @@ import Foundation
 public enum ExampleType {
     case HelloWorld
     case ClickCounter
+    case SimpleList
 }
 
 public class Example {
