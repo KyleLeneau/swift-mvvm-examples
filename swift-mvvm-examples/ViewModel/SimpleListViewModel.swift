@@ -20,7 +20,7 @@ public class SimpleListItemViewModel {
 
 public class SimpleListViewModel {
     
-    public let items: MutableProperty<[SimpleListItemViewModel]> = MutableProperty([])
+    public let items = MutableProperty([SimpleListItemViewModel]())
     public let itemToAdd = MutableProperty("")
     
     private var addEnabled: PropertyOf<Bool> {
