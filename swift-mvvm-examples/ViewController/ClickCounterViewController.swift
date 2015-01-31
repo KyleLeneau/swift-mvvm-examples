@@ -18,6 +18,9 @@ class ClickCounterViewController: UIViewController {
     var clickAlertLabel: UILabel!
     var resetButton: UIButton!
     
+    var clickAction: CocoaAction!
+    var resetAction: CocoaAction!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -28,14 +31,22 @@ class ClickCounterViewController: UIViewController {
         self.viewModel.clickCountDisplay.start(next: { s in
             self.clickCountLabel.text = s
         })
+
+        self.viewModel.clickEnabled.producer.start(next: { b in
+            self.clickButton.enabled = b
+        })
         
-        // TODO: button is not being disabled
-        var clickCommand = ReactiveCocoa.asRACCommand(self.viewModel.registerClickAction)
-        self.clickButton.rac_command = clickCommand
+        self.viewModel.resetEnabled.producer.start(next: { b in
+            self.resetButton.enabled = b
+            self.resetButton.hidden = !b
+            self.clickAlertLabel.hidden = !b
+        })
         
-        // TODO: button is not being toggled
-        var resetCommand = ReactiveCocoa.asRACCommand(self.viewModel.resetClicksAction)
-        self.resetButton.rac_command = resetCommand
+        self.clickAction = CocoaAction(self.viewModel.registerClickAction, input: 0)
+        self.clickButton.addTarget(clickAction, action: CocoaAction.selector, forControlEvents: .TouchUpInside)
+
+        self.resetAction = CocoaAction(self.viewModel.resetClicksAction, input: 0)
+        self.resetButton.addTarget(resetAction, action: CocoaAction.selector, forControlEvents: .TouchUpInside)
     }
 
     
@@ -55,9 +66,7 @@ class ClickCounterViewController: UIViewController {
         self.clickButton = UIButton(forAutoLayout: ())
         self.clickButton.setTitle("Click Me", forState: .Normal)
         self.clickButton.setTitleColor(UIColor.blueColor(), forState: .Normal)
-        self.clickButton.setTitleColor(UIColor.darkGrayColor(), forState: .Highlighted)
-        self.clickButton.setTitleColor(UIColor.darkGrayColor(), forState: .Disabled)
-        self.clickButton.backgroundColor = UIColor.lightGrayColor()
+        self.clickButton.setTitleColor(UIColor.orangeColor(), forState: .Disabled)
         self.view.addSubview(self.clickButton)
         self.clickButton.autoPinEdge(.Top, toEdge: .Bottom, ofView: self.clickCountLabel, withOffset: 20.0)
         self.clickButton.autoSetDimension(.Height, toSize: 40.0)
@@ -76,7 +85,7 @@ class ClickCounterViewController: UIViewController {
         self.resetButton = UIButton(forAutoLayout: ())
         self.resetButton.setTitle("Reset Clicks", forState: .Normal)
         self.resetButton.setTitleColor(UIColor.blueColor(), forState: .Normal)
-        self.resetButton.backgroundColor = UIColor.lightGrayColor()
+        self.resetButton.setTitleColor(UIColor.orangeColor(), forState: .Disabled)
         self.view.addSubview(self.resetButton)
         self.resetButton.autoPinEdge(.Top, toEdge: .Bottom, ofView: self.clickAlertLabel, withOffset: 20.0)
         self.resetButton.autoSetDimension(.Height, toSize: 40.0)

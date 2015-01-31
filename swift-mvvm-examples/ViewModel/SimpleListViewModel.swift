@@ -23,15 +23,11 @@ public class SimpleListViewModel {
     public let items = MutableProperty([SimpleListItemViewModel]())
     public let itemToAdd = MutableProperty("")
     
-    private var addEnabled: PropertyOf<Bool> {
+    public lazy var addEnabled: PropertyOf<Bool> = {
         let property = MutableProperty(false)
         
-        func enabled(x: String) -> Bool {
-            return countElements(x) > 0
-        }
-        
-        itemToAdd.producer
-            |> map(enabled)
+        self.itemToAdd.producer
+            |> map { x in countElements(x) > 0 }
             // FIXME: Workaround for <~ being disabled on SignalProducers.
             |> startWithSignal { signal, disposable in
                 let bindDisposable = property <~ signal
@@ -39,13 +35,13 @@ public class SimpleListViewModel {
         }
         
         return PropertyOf(property)
-    }
+    }()
     
-    public var addItemAction: Action<AnyObject?, AnyObject, NSError> {
-        return Action<AnyObject?, AnyObject, NSError>(enabledIf: addEnabled, { x in
+    public lazy var addItemAction: Action<AnyObject?, AnyObject, NSError> = {
+        return Action<AnyObject?, AnyObject, NSError>(enabledIf: self.addEnabled, { x in
             self.items.value.append(SimpleListItemViewModel(name: self.itemToAdd.value))
             self.itemToAdd.value = ""
             return SignalProducer.empty
         })
-    }
+    }()
 }

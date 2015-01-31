@@ -18,6 +18,8 @@ class SimpleListViewController: UIViewController, UITableViewDataSource {
     var addNewItem: UIButton!
     var itemsTableView: UITableView!
     
+    var addAction: CocoaAction!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -37,9 +39,12 @@ class SimpleListViewController: UIViewController, UITableViewDataSource {
             self.newItemText.text = s
         })
         
-        // TODO: add button is not being disabled
-        var addCommand = ReactiveCocoa.asRACCommand(self.viewModel.addItemAction)
-        self.addNewItem.rac_command = addCommand
+        self.viewModel.addEnabled.producer.start(next: { b in
+            self.addNewItem.enabled = b
+        })
+        
+        self.addAction = CocoaAction(self.viewModel.addItemAction, input: "")
+        self.addNewItem.addTarget(self.addAction, action: CocoaAction.selector, forControlEvents: .TouchUpInside)
     }    
     
     func setupUI() {
