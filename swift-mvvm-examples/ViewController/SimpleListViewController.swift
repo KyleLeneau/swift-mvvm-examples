@@ -31,10 +31,10 @@ class SimpleListViewController: UIViewController, UITableViewDataSource {
             self.itemsTableView.reloadData()
         })
         
-        // TODO: this sucks, would rather have 2-way binding
         self.newItemText.rac_textSignalProducer().start(next: { s in
             self.viewModel.itemToAdd.value = s
         })
+        
         self.viewModel.itemToAdd.producer.start(next: { s in
             self.newItemText.text = s
         })
