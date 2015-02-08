@@ -31,18 +31,8 @@ class HelloWorldViewController: UIViewController {
     
         self.viewModel.firstName <~ firstNameText.rac_textSignalProducer()
         self.viewModel.lastName <~ lastNameText.rac_textSignalProducer()
-
-        self.viewModel.fullName.start(next: { s in
-            self.titleLabel.text = s
-        })
-        
-
-//        var x = self.viewModel.fullName.map({ "Hello, \($0)" as AnyObject? }).asDeferredRACSignal(identity)
-//        RAC(self.titleLabel as NSObject, "text").assignSignal(x)
+        RAC(self.titleLabel, "text") <~ self.viewModel.fullName
     }
-    
-    
-    
     
     
     

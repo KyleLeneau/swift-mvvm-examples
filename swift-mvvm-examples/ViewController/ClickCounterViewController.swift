@@ -28,19 +28,11 @@ class ClickCounterViewController: UIViewController {
     }
     
     func setupBindings() {
-        self.viewModel.clickCountDisplay.start(next: { s in
-            self.clickCountLabel.text = s
-        })
-
-        self.viewModel.clickEnabled.producer.start(next: { b in
-            self.clickButton.enabled = b
-        })
-        
-        self.viewModel.resetEnabled.producer.start(next: { b in
-            self.resetButton.enabled = b
-            self.resetButton.hidden = !b
-            self.clickAlertLabel.hidden = !b
-        })
+        RAC(self.clickCountLabel, "text") <~ self.viewModel.clickCountDisplay
+        RAC(self.clickButton, "enabled") <~ self.viewModel.clickEnabled.producer
+        RAC(self.resetButton, "enabled") <~ self.viewModel.resetEnabled.producer
+        RAC(self.resetButton, "hidden") <~ self.viewModel.resetEnabled.producer |> map { !$0 }
+        RAC(self.clickAlertLabel, "hidden") <~ self.viewModel.resetEnabled.producer |> map { !$0 }
         
         self.clickAction = CocoaAction(self.viewModel.registerClickAction, input: 0)
         self.clickButton.addTarget(clickAction, action: CocoaAction.selector, forControlEvents: .TouchUpInside)
@@ -49,6 +41,7 @@ class ClickCounterViewController: UIViewController {
         self.resetButton.addTarget(resetAction, action: CocoaAction.selector, forControlEvents: .TouchUpInside)
     }
 
+    
     
     func setupUI() {
         self.view.backgroundColor = UIColor.whiteColor()

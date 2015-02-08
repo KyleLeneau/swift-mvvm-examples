@@ -32,18 +32,14 @@ class SimpleListViewController: UIViewController, UITableViewDataSource {
         })
         
         self.viewModel.itemToAdd <~ self.newItemText.rac_textSignalProducer()
-        
-        self.viewModel.itemToAdd.producer.start(next: { s in
-            self.newItemText.text = s
-        })
-        
-        self.viewModel.addEnabled.producer.start(next: { b in
-            self.addNewItem.enabled = b
-        })
+        RAC(self.newItemText, "text") <~ self.viewModel.itemToAdd.producer
+        RAC(self.addNewItem, "enabled") <~ self.viewModel.addEnabled.producer
         
         self.addAction = CocoaAction(self.viewModel.addItemAction, input: "")
         self.addNewItem.addTarget(self.addAction, action: CocoaAction.selector, forControlEvents: .TouchUpInside)
     }    
+    
+    
     
     func setupUI() {
         self.view.backgroundColor = UIColor.whiteColor()
