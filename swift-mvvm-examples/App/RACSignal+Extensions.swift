@@ -11,9 +11,32 @@ import ReactiveCocoa
 
 extension UITextField {
     
-    func rac_textSignalProducer() -> SignalProducer<String, NSError> {
+    func rac_textSignalProducer() -> SignalProducer<String, NoError> {
         return self.rac_textSignal().asSignalProducer()
             |> map({ $0 as String })
+    }
+}
+
+extension RACSignal {
+    
+    /// Creates a SignalProducer which will subscribe to the receiver once for
+    /// each invocation of start().
+    public func asSignalProducer(file: String = __FILE__, line: Int = __LINE__) -> SignalProducer<AnyObject?, NoError> {
+        return SignalProducer { observer, disposable in
+            let next = { (obj: AnyObject?) -> () in
+                sendNext(observer, obj)
+            }
+            
+            let error = { (nsError: NSError?) -> () in
+            }
+            
+            let completed = {
+                sendCompleted(observer)
+            }
+            
+            let selfDisposable: RACDisposable? = self.subscribeNext(next, error: error, completed: completed)
+            disposable.addDisposable(selfDisposable)
+        }
     }
 }
 
@@ -30,23 +53,23 @@ extension RACSignal {
         self.subscribeNext({ (next: AnyObject!) -> () in
             let nextAsT = next as T
             nextClosure(nextAsT)
-            }, completed: completed)
+        }, completed: completed)
     }
     
     func subscribeNextAs<T>(nextClosure:(T) -> (), error:(NSError) -> (), completed: () -> ()) ->() {
         self.subscribeNext({ (next: AnyObject!) -> () in
             let nextAsT = next as T
-            nextClosure(nextAsT)
-            }, error: { (err: NSError!) -> Void in
-                error(err)
-            }, completed: completed)
+        nextClosure(nextAsT)
+        }, error: { (err: NSError!) -> Void in
+            error(err)
+        }, completed: completed)
     }
     
     func subscribeNextAs<T>(nextClosure:(T) -> (), error:(NSError) -> ()) ->() {
         self.subscribeNext({ (next: AnyObject!) -> () in
             let nextAsT = next as T
             nextClosure(nextAsT)
-            }, error: { (err: NSError!) -> Void in
+        }, error: { (err: NSError!) -> Void in
                 error(err)
         })
     }

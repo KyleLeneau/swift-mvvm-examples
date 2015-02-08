@@ -31,9 +31,7 @@ class SimpleListViewController: UIViewController, UITableViewDataSource {
             self.itemsTableView.reloadData()
         })
         
-        self.newItemText.rac_textSignalProducer().start(next: { s in
-            self.viewModel.itemToAdd.value = s
-        })
+        self.viewModel.itemToAdd <~ self.newItemText.rac_textSignalProducer()
         
         self.viewModel.itemToAdd.producer.start(next: { s in
             self.newItemText.text = s

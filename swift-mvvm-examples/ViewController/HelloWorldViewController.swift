@@ -28,24 +28,15 @@ class HelloWorldViewController: UIViewController {
     private func setupBindings() {
         firstNameText.text = "Planet"
         lastNameText.text = "Earth"
-        
-        firstNameText.rac_textSignalProducer().start(next: { s in
-            self.viewModel.firstName.value = s
-        })
-
-        lastNameText.rac_textSignalProducer().start(next: { s in
-            self.viewModel.lastName.value = s
-        })
+    
+        self.viewModel.firstName <~ firstNameText.rac_textSignalProducer()
+        self.viewModel.lastName <~ lastNameText.rac_textSignalProducer()
 
         self.viewModel.fullName.start(next: { s in
             self.titleLabel.text = s
         })
         
-        
-        // THESE ARE BROKEN RIGHT NOW IN RAC
-//        self.viewModel.firstName <~! firstNameText.rac_textColdSignal()
-//        self.viewModel.lastName <~! lastNameText.rac_textColdSignal()
-//        
+
 //        var x = self.viewModel.fullName.map({ "Hello, \($0)" as AnyObject? }).asDeferredRACSignal(identity)
 //        RAC(self.titleLabel as NSObject, "text").assignSignal(x)
     }

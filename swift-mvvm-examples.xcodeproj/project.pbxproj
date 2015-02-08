@@ -10,6 +10,9 @@
 		2715B4B41A6A0ADC00B41887 /* EmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2715B4B31A6A0ADC00B41887 /* EmptyViewController.swift */; };
 		2715B4B61A6A1EDE00B41887 /* ClickCounterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2715B4B51A6A1EDE00B41887 /* ClickCounterViewModel.swift */; };
 		2715B4B81A6A1EEF00B41887 /* ClickCounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2715B4B71A6A1EEF00B41887 /* ClickCounterViewController.swift */; };
+		272C737C1A8811760087DDDD /* ALView+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 272C73741A8811760087DDDD /* ALView+PureLayout.m */; };
+		272C737D1A8811760087DDDD /* NSArray+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 272C73761A8811760087DDDD /* NSArray+PureLayout.m */; };
+		272C737E1A8811760087DDDD /* NSLayoutConstraint+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 272C73781A8811760087DDDD /* NSLayoutConstraint+PureLayout.m */; };
 		27B6056D1A636EC8000EEF76 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27BBC29E1A636C4B00E2BE8A /* ReactiveCocoa.framework */; };
 		27B6056E1A636EC8000EEF76 /* ReactiveCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 27BBC29E1A636C4B00E2BE8A /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		27B605941A6374E2000EEF76 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27B6058E1A6374E2000EEF76 /* LaunchScreen.xib */; };
@@ -20,9 +23,6 @@
 		27B605A71A63751A000EEF76 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B605A21A63751A000EEF76 /* MasterViewController.swift */; };
 		27B605AB1A63762A000EEF76 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B605AA1A63762A000EEF76 /* Example.swift */; };
 		27B605AD1A637ACF000EEF76 /* HelloWorldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B605AC1A637ACF000EEF76 /* HelloWorldViewModel.swift */; };
-		27BBC2AC1A636C8E00E2BE8A /* ALView+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 27BBC2A41A636C8E00E2BE8A /* ALView+PureLayout.m */; };
-		27BBC2AD1A636C8E00E2BE8A /* NSArray+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 27BBC2A61A636C8E00E2BE8A /* NSArray+PureLayout.m */; };
-		27BBC2AE1A636C8E00E2BE8A /* NSLayoutConstraint+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 27BBC2A81A636C8E00E2BE8A /* NSLayoutConstraint+PureLayout.m */; };
 		27DDBAAC1A74B45A004B4ADD /* SimpleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DDBAAB1A74B45A004B4ADD /* SimpleListViewModel.swift */; };
 		27DDBAB51A74B491004B4ADD /* SimpleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DDBAB41A74B491004B4ADD /* SimpleListViewController.swift */; };
 		27F5EDA61A636ADB00944ADE /* swift_mvvm_examplesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F5EDA51A636ADB00944ADE /* swift_mvvm_examplesTests.swift */; };
@@ -119,6 +119,15 @@
 		2715B4B31A6A0ADC00B41887 /* EmptyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyViewController.swift; sourceTree = "<group>"; };
 		2715B4B51A6A1EDE00B41887 /* ClickCounterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClickCounterViewModel.swift; sourceTree = "<group>"; };
 		2715B4B71A6A1EEF00B41887 /* ClickCounterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClickCounterViewController.swift; sourceTree = "<group>"; };
+		272C73731A8811760087DDDD /* ALView+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ALView+PureLayout.h"; path = "external/PureLayout/PureLayout/PureLayout/ALView+PureLayout.h"; sourceTree = "<group>"; };
+		272C73741A8811760087DDDD /* ALView+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ALView+PureLayout.m"; path = "external/PureLayout/PureLayout/PureLayout/ALView+PureLayout.m"; sourceTree = "<group>"; };
+		272C73751A8811760087DDDD /* NSArray+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+PureLayout.h"; path = "external/PureLayout/PureLayout/PureLayout/NSArray+PureLayout.h"; sourceTree = "<group>"; };
+		272C73761A8811760087DDDD /* NSArray+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+PureLayout.m"; path = "external/PureLayout/PureLayout/PureLayout/NSArray+PureLayout.m"; sourceTree = "<group>"; };
+		272C73771A8811760087DDDD /* NSLayoutConstraint+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSLayoutConstraint+PureLayout.h"; path = "external/PureLayout/PureLayout/PureLayout/NSLayoutConstraint+PureLayout.h"; sourceTree = "<group>"; };
+		272C73781A8811760087DDDD /* NSLayoutConstraint+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSLayoutConstraint+PureLayout.m"; path = "external/PureLayout/PureLayout/PureLayout/NSLayoutConstraint+PureLayout.m"; sourceTree = "<group>"; };
+		272C73791A8811760087DDDD /* PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PureLayout.h; path = external/PureLayout/PureLayout/PureLayout/PureLayout.h; sourceTree = "<group>"; };
+		272C737A1A8811760087DDDD /* PureLayout+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PureLayout+Internal.h"; path = "external/PureLayout/PureLayout/PureLayout/PureLayout+Internal.h"; sourceTree = "<group>"; };
+		272C737B1A8811760087DDDD /* PureLayoutDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PureLayoutDefines.h; path = external/PureLayout/PureLayout/PureLayout/PureLayoutDefines.h; sourceTree = "<group>"; };
 		27B605721A636EF2000EEF76 /* LlamaKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LlamaKit.xcodeproj; path = external/ReactiveCocoa/Carthage/Checkouts/LlamaKit/LlamaKit.xcodeproj; sourceTree = "<group>"; };
 		27B6058F1A6374E2000EEF76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		27B605921A6374E2000EEF76 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -131,15 +140,6 @@
 		27B605AA1A63762A000EEF76 /* Example.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Example.swift; path = "swift-mvvm-examples/Model/Example.swift"; sourceTree = SOURCE_ROOT; };
 		27B605AC1A637ACF000EEF76 /* HelloWorldViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelloWorldViewModel.swift; sourceTree = "<group>"; };
 		27BBC2921A636C4B00E2BE8A /* ReactiveCocoa.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactiveCocoa.xcodeproj; path = external/ReactiveCocoa/ReactiveCocoa.xcodeproj; sourceTree = "<group>"; };
-		27BBC2A31A636C8E00E2BE8A /* ALView+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ALView+PureLayout.h"; path = "external/PureLayout/Source/ALView+PureLayout.h"; sourceTree = "<group>"; };
-		27BBC2A41A636C8E00E2BE8A /* ALView+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ALView+PureLayout.m"; path = "external/PureLayout/Source/ALView+PureLayout.m"; sourceTree = "<group>"; };
-		27BBC2A51A636C8E00E2BE8A /* NSArray+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+PureLayout.h"; path = "external/PureLayout/Source/NSArray+PureLayout.h"; sourceTree = "<group>"; };
-		27BBC2A61A636C8E00E2BE8A /* NSArray+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+PureLayout.m"; path = "external/PureLayout/Source/NSArray+PureLayout.m"; sourceTree = "<group>"; };
-		27BBC2A71A636C8E00E2BE8A /* NSLayoutConstraint+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSLayoutConstraint+PureLayout.h"; path = "external/PureLayout/Source/NSLayoutConstraint+PureLayout.h"; sourceTree = "<group>"; };
-		27BBC2A81A636C8E00E2BE8A /* NSLayoutConstraint+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSLayoutConstraint+PureLayout.m"; path = "external/PureLayout/Source/NSLayoutConstraint+PureLayout.m"; sourceTree = "<group>"; };
-		27BBC2A91A636C8E00E2BE8A /* PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PureLayout.h; path = external/PureLayout/Source/PureLayout.h; sourceTree = "<group>"; };
-		27BBC2AA1A636C8E00E2BE8A /* PureLayout+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PureLayout+Internal.h"; path = "external/PureLayout/Source/PureLayout+Internal.h"; sourceTree = "<group>"; };
-		27BBC2AB1A636C8E00E2BE8A /* PureLayoutDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PureLayoutDefines.h; path = external/PureLayout/Source/PureLayoutDefines.h; sourceTree = "<group>"; };
 		27DDBAAB1A74B45A004B4ADD /* SimpleListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleListViewModel.swift; sourceTree = "<group>"; };
 		27DDBAB41A74B491004B4ADD /* SimpleListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleListViewController.swift; sourceTree = "<group>"; };
 		27F5ED881A636ADB00944ADE /* swift-mvvm-examples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swift-mvvm-examples.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -259,15 +259,15 @@
 		27BBC2A21A636C7A00E2BE8A /* PureLayout */ = {
 			isa = PBXGroup;
 			children = (
-				27BBC2A31A636C8E00E2BE8A /* ALView+PureLayout.h */,
-				27BBC2A41A636C8E00E2BE8A /* ALView+PureLayout.m */,
-				27BBC2A51A636C8E00E2BE8A /* NSArray+PureLayout.h */,
-				27BBC2A61A636C8E00E2BE8A /* NSArray+PureLayout.m */,
-				27BBC2A71A636C8E00E2BE8A /* NSLayoutConstraint+PureLayout.h */,
-				27BBC2A81A636C8E00E2BE8A /* NSLayoutConstraint+PureLayout.m */,
-				27BBC2A91A636C8E00E2BE8A /* PureLayout.h */,
-				27BBC2AA1A636C8E00E2BE8A /* PureLayout+Internal.h */,
-				27BBC2AB1A636C8E00E2BE8A /* PureLayoutDefines.h */,
+				272C73731A8811760087DDDD /* ALView+PureLayout.h */,
+				272C73741A8811760087DDDD /* ALView+PureLayout.m */,
+				272C73751A8811760087DDDD /* NSArray+PureLayout.h */,
+				272C73761A8811760087DDDD /* NSArray+PureLayout.m */,
+				272C73771A8811760087DDDD /* NSLayoutConstraint+PureLayout.h */,
+				272C73781A8811760087DDDD /* NSLayoutConstraint+PureLayout.m */,
+				272C73791A8811760087DDDD /* PureLayout.h */,
+				272C737A1A8811760087DDDD /* PureLayout+Internal.h */,
+				272C737B1A8811760087DDDD /* PureLayoutDefines.h */,
 			);
 			name = PureLayout;
 			sourceTree = "<group>";
@@ -497,13 +497,13 @@
 				27B605AD1A637ACF000EEF76 /* HelloWorldViewModel.swift in Sources */,
 				2715B4B41A6A0ADC00B41887 /* EmptyViewController.swift in Sources */,
 				27DDBAAC1A74B45A004B4ADD /* SimpleListViewModel.swift in Sources */,
-				27BBC2AC1A636C8E00E2BE8A /* ALView+PureLayout.m in Sources */,
-				27BBC2AD1A636C8E00E2BE8A /* NSArray+PureLayout.m in Sources */,
 				27B605A61A63751A000EEF76 /* HelloWorldViewController.swift in Sources */,
+				272C737E1A8811760087DDDD /* NSLayoutConstraint+PureLayout.m in Sources */,
+				272C737C1A8811760087DDDD /* ALView+PureLayout.m in Sources */,
 				27B605AB1A63762A000EEF76 /* Example.swift in Sources */,
 				2715B4B61A6A1EDE00B41887 /* ClickCounterViewModel.swift in Sources */,
-				27BBC2AE1A636C8E00E2BE8A /* NSLayoutConstraint+PureLayout.m in Sources */,
 				27B605A71A63751A000EEF76 /* MasterViewController.swift in Sources */,
+				272C737D1A8811760087DDDD /* NSArray+PureLayout.m in Sources */,
 				27B605A51A63751A000EEF76 /* RACSignal+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
