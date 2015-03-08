@@ -26,13 +26,8 @@ public class SimpleListViewModel {
     public lazy var addEnabled: PropertyOf<Bool> = {
         let property = MutableProperty(false)
         
-        self.itemToAdd.producer
+        property <~ self.itemToAdd.producer
             |> map { x in countElements(x) > 0 }
-            // FIXME: Workaround for <~ being disabled on SignalProducers.
-            |> startWithSignal { signal, disposable in
-                let bindDisposable = property <~ signal
-                disposable.addDisposable(bindDisposable)
-        }
         
         return PropertyOf(property)
     }()

@@ -130,12 +130,12 @@ infix operator <~ {
 }
 
 public func <~ <E>(rac: RAC, producer: SignalProducer<String, E>) -> RACDisposable {
-    var signal = asRACSignal(producer |> map({ $0 as AnyObject? }))
+    var signal = toRACSignal(producer |> map({ $0 as AnyObject? }))
     return rac.assignSignal(signal)
 }
 
 public func <~ <E>(rac: RAC, producer: SignalProducer<Bool, E>) -> RACDisposable {
-    var signal = asRACSignal(producer |> map({ $0 as AnyObject? }))
+    var signal = toRACSignal(producer |> map({ $0 as AnyObject? }))
     return rac.assignSignal(signal)
 }
 

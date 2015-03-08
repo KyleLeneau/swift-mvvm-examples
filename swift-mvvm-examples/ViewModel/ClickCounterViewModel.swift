@@ -16,13 +16,8 @@ public class ClickCounterViewModel {
     public lazy var clickEnabled: PropertyOf<Bool> = {
         let property = MutableProperty(false)
         
-        self.numberOfClicks.producer
+        property <~ self.numberOfClicks.producer
             |> map { $0 <= 3 }
-            // FIXME: Workaround for <~ being disabled on SignalProducers.
-            |> startWithSignal { signal, disposable in
-                let bindDisposable = property <~ signal
-                disposable.addDisposable(bindDisposable)
-            }
         
         return PropertyOf(property)
     }()
@@ -30,13 +25,8 @@ public class ClickCounterViewModel {
     public lazy var resetEnabled: PropertyOf<Bool> = {
         let property = MutableProperty(false)
         
-        self.numberOfClicks.producer
+        property <~ self.numberOfClicks.producer
             |> map { $0 > 0 }
-            // FIXME: Workaround for <~ being disabled on SignalProducers.
-            |> startWithSignal { signal, disposable in
-                let bindDisposable = property <~ signal
-                disposable.addDisposable(bindDisposable)
-        }
         
         return PropertyOf(property)
     }()
