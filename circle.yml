@@ -3,8 +3,12 @@ machine:
   environment:
     XCODE_SCHEME: swift-mvvm-examples
     XCODE_PROJECT: swift-mvvm-examples.xcodeproj
+  pre:
+    - brew update
+    - brew upgrade
+    - brew install carthage
 
 ## Customize checkout
 checkout:
   post:
-    - ./script/bootstrap
+    - carthage update
