@@ -1,0 +1,3 @@
+github "LlamaKit/LlamaKit" "v0.6.0"
+github "smileyborg/PureLayout" "v2.0.6"
+github "ReactiveCocoa/ReactiveCocoa" "233a3c01e32b44610fdcd648d6a8603d7befa626"

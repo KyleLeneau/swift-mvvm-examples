@@ -27,7 +27,7 @@ public class SimpleListViewModel {
         let property = MutableProperty(false)
         
         property <~ self.itemToAdd.producer
-            |> map { x in countElements(x) > 0 }
+            |> map { x in count(x) > 0 }
         
         return PropertyOf(property)
     }()

@@ -1,6 +1,0 @@
-[submodule "external/ReactiveCocoa"]
-	path = external/ReactiveCocoa
-	url = git@github.com:ReactiveCocoa/ReactiveCocoa.git
-[submodule "external/PureLayout"]
-	path = external/PureLayout
-	url = git@github.com:smileyborg/PureLayout.git

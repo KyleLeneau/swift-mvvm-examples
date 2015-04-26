@@ -13,7 +13,7 @@ extension UITextField {
     
     func rac_textSignalProducer() -> SignalProducer<String, NoError> {
         return self.rac_textSignal().asSignalProducer()
-            |> map({ $0 as String })
+            |> map({ $0 as! String })
     }
 }
 
@@ -44,21 +44,21 @@ extension RACSignal {
     
     func subscribeNextAs<T>(nextClosure:(T) -> ()) ->() {
         self.subscribeNext { (next: AnyObject!) -> () in
-            let nextAsT = next as T
+            let nextAsT = next as! T
             nextClosure(nextAsT)
         }
     }
     
     func subscribeNextAs<T>(nextClosure:(T) -> (), completed: () -> ()) ->() {
         self.subscribeNext({ (next: AnyObject!) -> () in
-            let nextAsT = next as T
+            let nextAsT = next as! T
             nextClosure(nextAsT)
         }, completed: completed)
     }
     
     func subscribeNextAs<T>(nextClosure:(T) -> (), error:(NSError) -> (), completed: () -> ()) ->() {
         self.subscribeNext({ (next: AnyObject!) -> () in
-            let nextAsT = next as T
+            let nextAsT = next as! T
         nextClosure(nextAsT)
         }, error: { (err: NSError!) -> Void in
             error(err)
@@ -67,7 +67,7 @@ extension RACSignal {
     
     func subscribeNextAs<T>(nextClosure:(T) -> (), error:(NSError) -> ()) ->() {
         self.subscribeNext({ (next: AnyObject!) -> () in
-            let nextAsT = next as T
+            let nextAsT = next as! T
             nextClosure(nextAsT)
         }, error: { (err: NSError!) -> Void in
                 error(err)
@@ -76,28 +76,28 @@ extension RACSignal {
     
     func flattenMapAs<T: AnyObject>(flattenMapClosure:(T) -> RACSignal) -> RACSignal {
         return self.flattenMap { (next: AnyObject!) -> RACStream! in
-            let nextAsT = next as T
+            let nextAsT = next as! T
             return flattenMapClosure(nextAsT)
         }
     }
     
     func mapAs<T: AnyObject, U: AnyObject>(mapClosure:(T) -> U) -> RACSignal {
         return self.map { (next: AnyObject!) -> AnyObject! in
-            let nextAsT = next as T
+            let nextAsT = next as! T
             return mapClosure(nextAsT)
         }
     }
     
     func filterAs<T: AnyObject>(filterClosure:(T) -> Bool) -> RACSignal {
         return self.filter { (next: AnyObject!) -> Bool in
-            let nextAsT = next as T
+            let nextAsT = next as! T
             return filterClosure(nextAsT)
         }
     }
     
     func doNextAs<T: AnyObject>(nextClosure:(T) -> ()) -> RACSignal {
         return self.doNext { (next: AnyObject!) -> () in
-            let nextAsT = next as T
+            let nextAsT = next as! T
             nextClosure(nextAsT)
         }
     }

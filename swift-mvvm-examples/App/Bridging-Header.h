@@ -6,5 +6,4 @@
 //  Copyright (c) 2015 Kyle LeNeau. All rights reserved.
 //
 
-#import "PureLayout.h"
-#import <ReactiveCocoa/ReactiveCocoa.h>
+#import <PureLayout_iOS/PureLayout.h>
