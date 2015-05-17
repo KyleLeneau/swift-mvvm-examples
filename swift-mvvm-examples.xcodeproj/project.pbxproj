@@ -20,6 +20,8 @@
 		27B605AD1A637ACF000EEF76 /* HelloWorldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B605AC1A637ACF000EEF76 /* HelloWorldViewModel.swift */; };
 		27DDBAAC1A74B45A004B4ADD /* SimpleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DDBAAB1A74B45A004B4ADD /* SimpleListViewModel.swift */; };
 		27DDBAB51A74B491004B4ADD /* SimpleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DDBAB41A74B491004B4ADD /* SimpleListViewController.swift */; };
+		27E233881B0842E2006BE4AF /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E233871B0842E2006BE4AF /* LoginViewModel.swift */; };
+		27E2338A1B0842FF006BE4AF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E233891B0842FF006BE4AF /* LoginViewController.swift */; };
 		27EC520C1AEC652600567F16 /* LlamaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27EC52091AEC652600567F16 /* LlamaKit.framework */; };
 		27EC520D1AEC652600567F16 /* PureLayout_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27EC520A1AEC652600567F16 /* PureLayout_iOS.framework */; };
 		27EC520E1AEC652600567F16 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27EC520B1AEC652600567F16 /* ReactiveCocoa.framework */; };
@@ -65,6 +67,8 @@
 		27B605AC1A637ACF000EEF76 /* HelloWorldViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelloWorldViewModel.swift; sourceTree = "<group>"; };
 		27DDBAAB1A74B45A004B4ADD /* SimpleListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleListViewModel.swift; sourceTree = "<group>"; };
 		27DDBAB41A74B491004B4ADD /* SimpleListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleListViewController.swift; sourceTree = "<group>"; };
+		27E233871B0842E2006BE4AF /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		27E233891B0842FF006BE4AF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		27EC52091AEC652600567F16 /* LlamaKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LlamaKit.framework; path = Carthage/Build/iOS/LlamaKit.framework; sourceTree = "<group>"; };
 		27EC520A1AEC652600567F16 /* PureLayout_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PureLayout_iOS.framework; path = Carthage/Build/iOS/PureLayout_iOS.framework; sourceTree = "<group>"; };
 		27EC520B1AEC652600567F16 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
@@ -138,6 +142,7 @@
 				27B605A11A63751A000EEF76 /* HelloWorldViewController.swift */,
 				2715B4B71A6A1EEF00B41887 /* ClickCounterViewController.swift */,
 				27DDBAB41A74B491004B4ADD /* SimpleListViewController.swift */,
+				27E233891B0842FF006BE4AF /* LoginViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -148,6 +153,7 @@
 				27B605AC1A637ACF000EEF76 /* HelloWorldViewModel.swift */,
 				2715B4B51A6A1EDE00B41887 /* ClickCounterViewModel.swift */,
 				27DDBAAB1A74B45A004B4ADD /* SimpleListViewModel.swift */,
+				27E233871B0842E2006BE4AF /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -339,8 +345,10 @@
 				27DDBAAC1A74B45A004B4ADD /* SimpleListViewModel.swift in Sources */,
 				27B605A61A63751A000EEF76 /* HelloWorldViewController.swift in Sources */,
 				27B605AB1A63762A000EEF76 /* Example.swift in Sources */,
+				27E233881B0842E2006BE4AF /* LoginViewModel.swift in Sources */,
 				2715B4B61A6A1EDE00B41887 /* ClickCounterViewModel.swift in Sources */,
 				27B605A71A63751A000EEF76 /* MasterViewController.swift in Sources */,
+				27E2338A1B0842FF006BE4AF /* LoginViewController.swift in Sources */,
 				27B605A51A63751A000EEF76 /* RACSignal+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
