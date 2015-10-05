@@ -1,5 +1,7 @@
 ## Customize the machine
 machine:
+  xcode:
+    version: "7.0"
   environment:
     XCODE_SCHEME: swift-mvvm-examples
     XCODE_PROJECT: swift-mvvm-examples.xcodeproj
@@ -11,4 +13,4 @@ machine:
 ## Customize checkout
 checkout:
   post:
-    - carthage update
+    - carthage update --platform ios
