@@ -1,4 +1,3 @@
-github "robrix/Box" "1.2.2"
-github "smileyborg/PureLayout" "v2.0.6"
-github "antitypical/Result" "0.4.4"
-github "ReactiveCocoa/ReactiveCocoa" "b89e1b73f2d1c6a99e0916f699ab6dcda71c74b5"
+github "smileyborg/PureLayout" "v3.0.1"
+github "antitypical/Result" "76f9a972ed61ff872b731460bc610c8acbfae58c"
+github "ReactiveCocoa/ReactiveCocoa" "v4.0-alpha.1"

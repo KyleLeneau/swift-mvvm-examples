@@ -9,9 +9,7 @@
 import Foundation
 
 public enum ExampleType {
-    case HelloWorld
-    case ClickCounter
-    case SimpleList
+    case HelloWorld, ClickCounter, SimpleList
 }
 
 public class Example {

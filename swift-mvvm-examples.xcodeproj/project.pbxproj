@@ -22,7 +22,6 @@
 		27DDBAB51A74B491004B4ADD /* SimpleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DDBAB41A74B491004B4ADD /* SimpleListViewController.swift */; };
 		27E233881B0842E2006BE4AF /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E233871B0842E2006BE4AF /* LoginViewModel.swift */; };
 		27E2338A1B0842FF006BE4AF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E233891B0842FF006BE4AF /* LoginViewController.swift */; };
-		27EC520C1AEC652600567F16 /* LlamaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27EC52091AEC652600567F16 /* LlamaKit.framework */; };
 		27EC520D1AEC652600567F16 /* PureLayout_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27EC520A1AEC652600567F16 /* PureLayout_iOS.framework */; };
 		27EC520E1AEC652600567F16 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27EC520B1AEC652600567F16 /* ReactiveCocoa.framework */; };
 		27F5EDA61A636ADB00944ADE /* swift_mvvm_examplesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F5EDA51A636ADB00944ADE /* swift_mvvm_examplesTests.swift */; };
@@ -83,7 +82,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27EC520C1AEC652600567F16 /* LlamaKit.framework in Frameworks */,
 				27EC520D1AEC652600567F16 /* PureLayout_iOS.framework in Frameworks */,
 				27EC520E1AEC652600567F16 /* ReactiveCocoa.framework in Frameworks */,
 			);
@@ -264,7 +262,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Kyle LeNeau";
 				TargetAttributes = {
 					27F5ED871A636ADB00944ADE = {
@@ -321,11 +319,9 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/LlamaKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ReactiveCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/PureLayout_iOS.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Box.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
 			);
 			outputPaths = (
 			);
@@ -406,6 +402,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -476,6 +473,7 @@
 				);
 				INFOPLIST_FILE = "swift-mvvm-examples/App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.leneau.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "swift-mvvm-examples/App/Bridging-Header.h";
 			};
@@ -492,6 +490,7 @@
 				);
 				INFOPLIST_FILE = "swift-mvvm-examples/App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.leneau.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "swift-mvvm-examples/App/Bridging-Header.h";
 			};
@@ -511,6 +510,7 @@
 				);
 				INFOPLIST_FILE = "swift-mvvm-examplesTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.leneau.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/swift-mvvm-examples.app/swift-mvvm-examples";
 			};
@@ -526,6 +526,7 @@
 				);
 				INFOPLIST_FILE = "swift-mvvm-examplesTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.leneau.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/swift-mvvm-examples.app/swift-mvvm-examples";
 			};

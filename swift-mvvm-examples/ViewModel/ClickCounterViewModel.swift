@@ -17,7 +17,7 @@ public class ClickCounterViewModel {
         let property = MutableProperty(false)
         
         property <~ self.numberOfClicks.producer
-            |> map { $0 <= 3 }
+            .map { $0 <= 3 }
         
         return PropertyOf(property)
     }()
@@ -26,14 +26,14 @@ public class ClickCounterViewModel {
         let property = MutableProperty(false)
         
         property <~ self.numberOfClicks.producer
-            |> map { $0 > 0 }
+            .map { $0 > 0 }
         
         return PropertyOf(property)
     }()
     
     public lazy var clickCountDisplay: SignalProducer<String, NoError> = {
         return self.numberOfClicks.producer
-            |> map { return "You've clicked \($0) times" }
+            .map { return "You've clicked \($0) times" }
     }()
     
     public lazy var registerClickAction: Action<AnyObject?, AnyObject, NSError> = {

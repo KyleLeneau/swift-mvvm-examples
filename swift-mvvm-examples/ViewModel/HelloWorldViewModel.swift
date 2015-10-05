@@ -16,7 +16,7 @@ public class HelloWorldViewModel {
     
     public var fullName: SignalProducer<String, NoError> {
         return firstName.producer
-            |> combineLatestWith(lastName.producer)
-            |> map({ return "Hello, \($0) \($1)" })
+            .combineLatestWith(lastName.producer)
+            .map({ return "Hello, \($0) \($1)" })
     }
 }

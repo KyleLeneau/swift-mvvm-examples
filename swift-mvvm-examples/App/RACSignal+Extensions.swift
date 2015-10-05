@@ -13,7 +13,7 @@ extension UITextField {
     
     func rac_textSignalProducer() -> SignalProducer<String, NoError> {
         return self.rac_textSignal().asSignalProducer()
-            |> map({ $0 as! String })
+            .map({ $0 as! String })
     }
 }
 
@@ -130,12 +130,12 @@ infix operator <~ {
 }
 
 public func <~ <E>(rac: RAC, producer: SignalProducer<String, E>) -> RACDisposable {
-    var signal = toRACSignal(producer |> map({ $0 as AnyObject? }))
+    let signal = toRACSignal(producer.map({ $0 as AnyObject? }))
     return rac.assignSignal(signal)
 }
 
 public func <~ <E>(rac: RAC, producer: SignalProducer<Bool, E>) -> RACDisposable {
-    var signal = toRACSignal(producer |> map({ $0 as AnyObject? }))
+    let signal = toRACSignal(producer.map({ $0 as AnyObject? }))
     return rac.assignSignal(signal)
 }
 

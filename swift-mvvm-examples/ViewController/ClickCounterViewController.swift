@@ -31,8 +31,8 @@ class ClickCounterViewController: UIViewController {
         RAC(self.clickCountLabel, "text") <~ self.viewModel.clickCountDisplay
         RAC(self.clickButton, "enabled") <~ self.viewModel.clickEnabled.producer
         RAC(self.resetButton, "enabled") <~ self.viewModel.resetEnabled.producer
-        RAC(self.resetButton, "hidden") <~ self.viewModel.resetEnabled.producer |> map { !$0 }
-        RAC(self.clickAlertLabel, "hidden") <~ self.viewModel.resetEnabled.producer |> map { !$0 }
+        RAC(self.resetButton, "hidden") <~ self.viewModel.resetEnabled.producer.map { !$0 }
+        RAC(self.clickAlertLabel, "hidden") <~ self.viewModel.resetEnabled.producer.map { !$0 }
         
         self.clickAction = CocoaAction(self.viewModel.registerClickAction, input: 0)
         self.clickButton.addTarget(clickAction, action: CocoaAction.selector, forControlEvents: .TouchUpInside)

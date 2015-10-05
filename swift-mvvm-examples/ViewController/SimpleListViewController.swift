@@ -27,7 +27,7 @@ class SimpleListViewController: UIViewController, UITableViewDataSource {
     }
     
     func setupBindings() {
-        self.viewModel.items.producer.start(next: { s in
+        self.viewModel.items.producer.start({ s in
             self.itemsTableView.reloadData()
         })
         
@@ -73,6 +73,7 @@ class SimpleListViewController: UIViewController, UITableViewDataSource {
         self.newItemText.autoMatchDimension(.Height, toDimension: .Height, ofView: self.addNewItem)
         
         self.itemsTableView = UITableView(forAutoLayout: ())
+        self.itemsTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         self.itemsTableView.dataSource = self
         self.view.addSubview(self.itemsTableView)
         self.itemsTableView.autoPinEdgesToSuperviewEdgesWithInsets(UIEdgeInsetsZero, excludingEdge: .Top)
@@ -86,14 +87,9 @@ class SimpleListViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as? UITableViewCell
-        if cell == nil {
-            cell = UITableViewCell(style: .Subtitle, reuseIdentifier: "Cell")
-        }
-        
-        var item = self.viewModel.items.value[indexPath.row]
-        cell?.textLabel!.text = item.displayName.value
-        
-        return cell!
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        let item = self.viewModel.items.value[indexPath.row]
+        cell.textLabel!.text = item.displayName.value
+        return cell
     }
 }

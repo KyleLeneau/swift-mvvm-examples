@@ -8,6 +8,17 @@
 
 import UIKit
 
+class ExampleCell: UITableViewCell {
+    
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: .Subtitle, reuseIdentifier: reuseIdentifier)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
 class MasterViewController: UITableViewController {
 
     let examples = [
@@ -25,6 +36,7 @@ class MasterViewController: UITableViewController {
         }
         
         self.tableView.rowHeight = 90.0
+        self.tableView.registerClass(ExampleCell.self, forCellReuseIdentifier: "Cell")
     }
 
     // MARK: - Table View
@@ -34,16 +46,11 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as? UITableViewCell
-        if cell == nil {
-            cell = UITableViewCell(style: .Subtitle, reuseIdentifier: "Cell")
-        }
-        
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         let example = examples[indexPath.row] as Example
-        cell?.textLabel!.text = example.title;
-        cell?.detailTextLabel!.text = example.description
-        
-        return cell!
+        cell.textLabel?.text = example.title;
+        cell.detailTextLabel?.text = example.description
+        return cell
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -51,14 +58,9 @@ class MasterViewController: UITableViewController {
         var detailVC: UIViewController?
         
         switch example.type {
-        case .HelloWorld:
-            detailVC = HelloWorldViewController()
-        case .ClickCounter:
-            detailVC = ClickCounterViewController()
-        case .SimpleList:
-            detailVC = SimpleListViewController()
-        default:
-            detailVC = EmptyViewController()
+        case .HelloWorld: detailVC = HelloWorldViewController()
+        case .ClickCounter: detailVC = ClickCounterViewController()
+        case .SimpleList: detailVC = SimpleListViewController()
         }
         
         if let vc = detailVC {

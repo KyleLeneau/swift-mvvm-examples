@@ -18,16 +18,15 @@ public class LoginViewModel {
     public lazy var loginEnabled: PropertyOf<Bool> = {
         let property = MutableProperty(false)
         
-        property <~ combineLatest(self.userName.producer,
-                                  self.password.producer)
-            |> map { userName, password in
+        property <~ combineLatest(self.userName.producer, self.password.producer)
+            .map { userName, password in
                 if let userName = userName,
                     password = password {
                         return true
                 } else {
                     return false
                 }
-        }
+            }
         
         return PropertyOf(property)
     }()
