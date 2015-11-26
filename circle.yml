@@ -1,7 +1,7 @@
 ## Customize the machine
 machine:
   xcode:
-    version: "7.0"
+    version: "7.1"
   environment:
     XCODE_SCHEME: swift-mvvm-examples
     XCODE_PROJECT: swift-mvvm-examples.xcodeproj
