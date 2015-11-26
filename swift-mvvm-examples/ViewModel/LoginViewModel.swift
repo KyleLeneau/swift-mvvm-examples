@@ -15,7 +15,7 @@ public class LoginViewModel {
     public let userName = MutableProperty<String?>(nil)
     public let password = MutableProperty<String?>(nil)
     
-    public lazy var loginEnabled: PropertyOf<Bool> = {
+    public lazy var loginEnabled: AnyProperty<Bool> = {
         let property = MutableProperty(false)
         
         property <~ combineLatest(self.userName.producer, self.password.producer)
@@ -28,7 +28,7 @@ public class LoginViewModel {
                 }
             }
         
-        return PropertyOf(property)
+        return AnyProperty(property)
     }()
     
     public lazy var loginAction: Action<(String, String), User, NSError> = {
@@ -37,11 +37,9 @@ public class LoginViewModel {
         })
     }()
 
-    private func login(username: String, password: String)
-        -> SignalProducer<User, NSError> {
-            
-        return SignalProducer { sink, disposable in
-            sendCompleted(sink)
+    private func login(username: String, password: String) -> SignalProducer<User, NSError> {
+        return SignalProducer { observer, disposable in
+            observer.sendCompleted()
         }
     }
 }

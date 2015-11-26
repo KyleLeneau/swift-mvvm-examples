@@ -24,14 +24,14 @@ extension RACSignal {
     public func asSignalProducer(file: String = __FILE__, line: Int = __LINE__) -> SignalProducer<AnyObject?, NoError> {
         return SignalProducer { observer, disposable in
             let next = { (obj: AnyObject?) -> () in
-                sendNext(observer, obj)
+                observer.sendNext(obj)
             }
             
             let error = { (nsError: NSError?) -> () in
             }
             
             let completed = {
-                sendCompleted(observer)
+                observer.sendCompleted()
             }
             
             let selfDisposable: RACDisposable? = self.subscribeNext(next, error: error, completed: completed)

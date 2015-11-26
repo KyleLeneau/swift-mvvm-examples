@@ -13,22 +13,22 @@ public class ClickCounterViewModel {
 
     public let numberOfClicks = MutableProperty(0)
     
-    public lazy var clickEnabled: PropertyOf<Bool> = {
+    public lazy var clickEnabled: AnyProperty<Bool> = {
         let property = MutableProperty(false)
         
         property <~ self.numberOfClicks.producer
             .map { $0 <= 3 }
         
-        return PropertyOf(property)
+        return AnyProperty(property)
     }()
     
-    public lazy var resetEnabled: PropertyOf<Bool> = {
+    public lazy var resetEnabled: AnyProperty<Bool> = {
         let property = MutableProperty(false)
         
         property <~ self.numberOfClicks.producer
             .map { $0 > 0 }
         
-        return PropertyOf(property)
+        return AnyProperty(property)
     }()
     
     public lazy var clickCountDisplay: SignalProducer<String, NoError> = {

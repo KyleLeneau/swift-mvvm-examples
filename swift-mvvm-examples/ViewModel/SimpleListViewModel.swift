@@ -23,13 +23,13 @@ public class SimpleListViewModel {
     public let items = MutableProperty([SimpleListItemViewModel]())
     public let itemToAdd = MutableProperty("")
     
-    public lazy var addEnabled: PropertyOf<Bool> = {
+    public lazy var addEnabled: AnyProperty<Bool> = {
         let property = MutableProperty(false)
         
         property <~ self.itemToAdd.producer
             .map { !$0.isEmpty }
         
-        return PropertyOf(property)
+        return AnyProperty(property)
     }()
     
     public lazy var addItemAction: Action<AnyObject?, AnyObject, NSError> = {
