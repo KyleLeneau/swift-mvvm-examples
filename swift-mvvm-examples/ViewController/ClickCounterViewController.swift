@@ -46,7 +46,7 @@ class ClickCounterViewController: UIViewController {
     func setupUI() {
         self.view.backgroundColor = UIColor.whiteColor()
         
-        self.clickCountLabel = UILabel(forAutoLayout: ())!
+        self.clickCountLabel = UILabel(forAutoLayout: ())
         self.clickCountLabel.textAlignment = .Center
         self.clickCountLabel.backgroundColor = UIColor.greenColor()
         self.clickCountLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)

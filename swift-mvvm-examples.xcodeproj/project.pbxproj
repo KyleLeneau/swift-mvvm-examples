@@ -18,11 +18,11 @@
 		27B605A71A63751A000EEF76 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B605A21A63751A000EEF76 /* MasterViewController.swift */; };
 		27B605AB1A63762A000EEF76 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B605AA1A63762A000EEF76 /* Example.swift */; };
 		27B605AD1A637ACF000EEF76 /* HelloWorldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B605AC1A637ACF000EEF76 /* HelloWorldViewModel.swift */; };
+		27D5D4921C07EBA200196BB5 /* PureLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27D5D4911C07EBA200196BB5 /* PureLayout.framework */; };
 		27DDBAAC1A74B45A004B4ADD /* SimpleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DDBAAB1A74B45A004B4ADD /* SimpleListViewModel.swift */; };
 		27DDBAB51A74B491004B4ADD /* SimpleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DDBAB41A74B491004B4ADD /* SimpleListViewController.swift */; };
 		27E233881B0842E2006BE4AF /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E233871B0842E2006BE4AF /* LoginViewModel.swift */; };
 		27E2338A1B0842FF006BE4AF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E233891B0842FF006BE4AF /* LoginViewController.swift */; };
-		27EC520D1AEC652600567F16 /* PureLayout_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27EC520A1AEC652600567F16 /* PureLayout_iOS.framework */; };
 		27EC520E1AEC652600567F16 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27EC520B1AEC652600567F16 /* ReactiveCocoa.framework */; };
 		27F5EDA61A636ADB00944ADE /* swift_mvvm_examplesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F5EDA51A636ADB00944ADE /* swift_mvvm_examplesTests.swift */; };
 /* End PBXBuildFile section */
@@ -64,6 +64,7 @@
 		27B605A81A637551000EEF76 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27B605AA1A63762A000EEF76 /* Example.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Example.swift; path = "swift-mvvm-examples/Model/Example.swift"; sourceTree = SOURCE_ROOT; };
 		27B605AC1A637ACF000EEF76 /* HelloWorldViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelloWorldViewModel.swift; sourceTree = "<group>"; };
+		27D5D4911C07EBA200196BB5 /* PureLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PureLayout.framework; path = Carthage/Build/iOS/PureLayout.framework; sourceTree = "<group>"; };
 		27DDBAAB1A74B45A004B4ADD /* SimpleListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleListViewModel.swift; sourceTree = "<group>"; };
 		27DDBAB41A74B491004B4ADD /* SimpleListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleListViewController.swift; sourceTree = "<group>"; };
 		27E233871B0842E2006BE4AF /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -82,7 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27EC520D1AEC652600567F16 /* PureLayout_iOS.framework in Frameworks */,
+				27D5D4921C07EBA200196BB5 /* PureLayout.framework in Frameworks */,
 				27EC520E1AEC652600567F16 /* ReactiveCocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -159,6 +160,7 @@
 		27EC52101AEC661400567F16 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				27D5D4911C07EBA200196BB5 /* PureLayout.framework */,
 				27EC52091AEC652600567F16 /* LlamaKit.framework */,
 				27EC520A1AEC652600567F16 /* PureLayout_iOS.framework */,
 				27EC520B1AEC652600567F16 /* ReactiveCocoa.framework */,
@@ -321,7 +323,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ReactiveCocoa.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PureLayout_iOS.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/PureLayout.framework",
 			);
 			outputPaths = (
 			);

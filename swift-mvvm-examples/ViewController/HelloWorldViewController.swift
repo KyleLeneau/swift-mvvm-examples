@@ -39,7 +39,7 @@ class HelloWorldViewController: UIViewController {
     private func setupUI() {
         self.view.backgroundColor = UIColor.whiteColor()
         
-        self.titleLabel = UILabel(forAutoLayout: ())!
+        self.titleLabel = UILabel(forAutoLayout: ())
         self.titleLabel.textAlignment = .Center
         self.titleLabel.backgroundColor = UIColor.greenColor()
         self.titleLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
@@ -57,7 +57,7 @@ class HelloWorldViewController: UIViewController {
         self.firstNameLabel.autoPinEdgeToSuperviewMargin(.Left)
         self.firstNameLabel.autoSetDimension(.Width, toSize: 100.0)
         
-        self.firstNameText = UITextField(forAutoLayout: ())!
+        self.firstNameText = UITextField(forAutoLayout: ())
         self.firstNameText.borderStyle = .RoundedRect
         self.view.addSubview(self.firstNameText)
         self.firstNameText.autoPinEdge(.Top, toEdge: .Bottom, ofView: self.titleLabel, withOffset: 10.0)
@@ -72,7 +72,7 @@ class HelloWorldViewController: UIViewController {
         self.lastNameLabel.autoPinEdgeToSuperviewMargin(.Left)
         self.lastNameLabel.autoSetDimension(.Width, toSize: 100.0)
         
-        self.lastNameText = UITextField(forAutoLayout: ())!
+        self.lastNameText = UITextField(forAutoLayout: ())
         self.lastNameText.borderStyle = .RoundedRect
         self.view.addSubview(self.lastNameText)
         self.lastNameText.autoPinEdge(.Top, toEdge: .Bottom, ofView: self.firstNameText, withOffset: 10.0)

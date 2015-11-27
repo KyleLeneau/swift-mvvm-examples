@@ -6,4 +6,4 @@
 //  Copyright (c) 2015 Kyle LeNeau. All rights reserved.
 //
 
-#import <PureLayout_iOS/PureLayout.h>
+#import <PureLayout/PureLayout.h>
