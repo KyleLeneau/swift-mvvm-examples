@@ -1,4 +1,4 @@
-# MVVM Examples with Swift [![Circle CI](https://circleci.com/gh/KyleLeneau/swift-mvvm-examples.svg?style=svg)](https://circleci.com/gh/KyleLeneau/swift-mvvm-examples)
+# MVVM Examples with Swift [![Circle CI](https://circleci.com/gh/KyleLeneau/swift-mvvm-examples.svg?style=svg)](https://circleci.com/gh/KyleLeneau/swift-mvvm-examples) ![](https://www.bitrise.io/app/50d9edc2c40205b2.svg?token=xNUbXmTg8WpJVD1uinozbw&branch=master)
 Using [KnockoutJS](http://knockoutjs.com/examples/) examples as a starting point, I hope to point out how to use MVVM in various views of on iOS application.
 
 ## Brief
