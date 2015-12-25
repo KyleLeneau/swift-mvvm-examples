@@ -28,11 +28,11 @@ class ClickCounterViewController: UIViewController {
     }
     
     func setupBindings() {
-        RAC(self.clickCountLabel, "text") <~ self.viewModel.clickCountDisplay
-        RAC(self.clickButton, "enabled") <~ self.viewModel.clickEnabled.producer
-        RAC(self.resetButton, "enabled") <~ self.viewModel.resetEnabled.producer
-        RAC(self.resetButton, "hidden") <~ self.viewModel.resetEnabled.producer.map { !$0 }
-        RAC(self.clickAlertLabel, "hidden") <~ self.viewModel.resetEnabled.producer.map { !$0 }
+        self.clickCountLabel.rac_text <~ self.viewModel.clickCountDisplay
+        self.clickButton.rac_enabled <~ self.viewModel.clickEnabled.producer
+        self.resetButton.rac_enabled <~ self.viewModel.resetEnabled.producer
+        self.resetButton.rac_hidden <~ self.viewModel.resetEnabled.producer.map { !$0 }
+        self.clickAlertLabel.rac_hidden <~ self.viewModel.resetEnabled.producer.map { !$0 }
         
         self.clickAction = CocoaAction(self.viewModel.registerClickAction, input: 0)
         self.clickButton.addTarget(clickAction, action: CocoaAction.selector, forControlEvents: .TouchUpInside)

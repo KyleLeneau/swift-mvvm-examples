@@ -10,10 +10,10 @@
 		2715B4B41A6A0ADC00B41887 /* EmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2715B4B31A6A0ADC00B41887 /* EmptyViewController.swift */; };
 		2715B4B61A6A1EDE00B41887 /* ClickCounterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2715B4B51A6A1EDE00B41887 /* ClickCounterViewModel.swift */; };
 		2715B4B81A6A1EEF00B41887 /* ClickCounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2715B4B71A6A1EEF00B41887 /* ClickCounterViewController.swift */; };
+		271ADECD1C2CFDC0000C838C /* UIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271ADECC1C2CFDC0000C838C /* UIKitExtensions.swift */; };
 		27B605941A6374E2000EEF76 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27B6058E1A6374E2000EEF76 /* LaunchScreen.xib */; };
 		27B605961A6374E2000EEF76 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27B605921A6374E2000EEF76 /* Images.xcassets */; };
 		27B605A41A63751A000EEF76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6059B1A63751A000EEF76 /* AppDelegate.swift */; };
-		27B605A51A63751A000EEF76 /* RACSignal+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6059D1A63751A000EEF76 /* RACSignal+Extensions.swift */; };
 		27B605A61A63751A000EEF76 /* HelloWorldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B605A11A63751A000EEF76 /* HelloWorldViewController.swift */; };
 		27B605A71A63751A000EEF76 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B605A21A63751A000EEF76 /* MasterViewController.swift */; };
 		27B605AB1A63762A000EEF76 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B605AA1A63762A000EEF76 /* Example.swift */; };
@@ -54,11 +54,11 @@
 		2715B4B31A6A0ADC00B41887 /* EmptyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyViewController.swift; sourceTree = "<group>"; };
 		2715B4B51A6A1EDE00B41887 /* ClickCounterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClickCounterViewModel.swift; sourceTree = "<group>"; };
 		2715B4B71A6A1EEF00B41887 /* ClickCounterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClickCounterViewController.swift; sourceTree = "<group>"; };
+		271ADECC1C2CFDC0000C838C /* UIKitExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitExtensions.swift; sourceTree = "<group>"; };
 		27B6058F1A6374E2000EEF76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		27B605921A6374E2000EEF76 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		27B6059B1A63751A000EEF76 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27B6059C1A63751A000EEF76 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
-		27B6059D1A63751A000EEF76 /* RACSignal+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RACSignal+Extensions.swift"; sourceTree = "<group>"; };
 		27B605A11A63751A000EEF76 /* HelloWorldViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelloWorldViewController.swift; sourceTree = "<group>"; };
 		27B605A21A63751A000EEF76 /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		27B605A81A637551000EEF76 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 				27B605A81A637551000EEF76 /* Info.plist */,
 				27B6059C1A63751A000EEF76 /* Bridging-Header.h */,
 				27B6059B1A63751A000EEF76 /* AppDelegate.swift */,
-				27B6059D1A63751A000EEF76 /* RACSignal+Extensions.swift */,
+				271ADECC1C2CFDC0000C838C /* UIKitExtensions.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -350,7 +350,7 @@
 				2715B4B61A6A1EDE00B41887 /* ClickCounterViewModel.swift in Sources */,
 				27B605A71A63751A000EEF76 /* MasterViewController.swift in Sources */,
 				27E2338A1B0842FF006BE4AF /* LoginViewController.swift in Sources */,
-				27B605A51A63751A000EEF76 /* RACSignal+Extensions.swift in Sources */,
+				271ADECD1C2CFDC0000C838C /* UIKitExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

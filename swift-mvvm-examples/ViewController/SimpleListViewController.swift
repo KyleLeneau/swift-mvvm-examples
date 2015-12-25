@@ -31,9 +31,9 @@ class SimpleListViewController: UIViewController, UITableViewDataSource {
             self.itemsTableView.reloadData()
         })
         
-        self.viewModel.itemToAdd <~ self.newItemText.rac_textSignalProducer()
-        RAC(self.newItemText, "text") <~ self.viewModel.itemToAdd.producer
-        RAC(self.addNewItem, "enabled") <~ self.viewModel.addEnabled.producer
+        self.viewModel.itemToAdd <~ self.newItemText.rac_text
+        self.newItemText.rac_text <~ self.viewModel.itemToAdd.producer
+        self.addNewItem.rac_enabled <~ self.viewModel.addEnabled.producer
         
         self.addAction = CocoaAction(self.viewModel.addItemAction, input: "")
         self.addNewItem.addTarget(self.addAction, action: CocoaAction.selector, forControlEvents: .TouchUpInside)

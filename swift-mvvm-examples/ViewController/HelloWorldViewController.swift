@@ -29,9 +29,9 @@ class HelloWorldViewController: UIViewController {
         firstNameText.text = "Planet"
         lastNameText.text = "Earth"
     
-        self.viewModel.firstName <~ firstNameText.rac_textSignalProducer()
-        self.viewModel.lastName <~ lastNameText.rac_textSignalProducer()
-        RAC(self.titleLabel, "text") <~ self.viewModel.fullName
+        self.viewModel.firstName <~ firstNameText.rac_text
+        self.viewModel.lastName <~ lastNameText.rac_text
+        self.titleLabel.rac_text <~ self.viewModel.fullName
     }
     
     
