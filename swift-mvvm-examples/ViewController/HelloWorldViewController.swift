@@ -7,11 +7,11 @@
 //
 
 import UIKit
-import ReactiveCocoa
+import ReactiveSwift
 
 class HelloWorldViewController: UIViewController {
 
-    private var viewModel = HelloWorldViewModel()
+    fileprivate var viewModel = HelloWorldViewModel()
     
     var titleLabel: UILabel!
     var firstNameLabel: UILabel!
@@ -25,59 +25,66 @@ class HelloWorldViewController: UIViewController {
         setupBindings()
     }
 
-    private func setupBindings() {
-        firstNameText.text = "Planet"
-        lastNameText.text = "Earth"
-    
-        self.viewModel.firstName <~ firstNameText.rac_text
-        self.viewModel.lastName <~ lastNameText.rac_text
-        self.titleLabel.rac_text <~ self.viewModel.fullName
+    fileprivate func setupBindings() {
+        // Set initial value and bind future values
+        firstNameText.text = viewModel.firstName.value
+        viewModel.firstName <~ firstNameText.reactive.continuousTextValues
+        
+        // Set initial value and bind future values
+        lastNameText.text = viewModel.lastName.value
+        viewModel.lastName <~ lastNameText.reactive.continuousTextValues
+        
+        // Bind future values
+        titleLabel.reactive.text <~ viewModel.fullName
     }
     
     
     
-    private func setupUI() {
-        self.view.backgroundColor = UIColor.whiteColor()
+    
+    
+    
+    fileprivate func setupUI() {
+        self.view.backgroundColor = UIColor.white
         
         self.titleLabel = UILabel(forAutoLayout: ())
-        self.titleLabel.textAlignment = .Center
-        self.titleLabel.backgroundColor = UIColor.greenColor()
-        self.titleLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
+        self.titleLabel.textAlignment = .center
+        self.titleLabel.backgroundColor = UIColor.green
+        self.titleLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
         self.view.addSubview(self.titleLabel)
-        self.titleLabel.autoPinToTopLayoutGuideOfViewController(self, withInset: 20.0)
-        self.titleLabel.autoSetDimension(.Height, toSize: 60.0)
-        self.titleLabel.autoPinEdgeToSuperviewMargin(.Left)
-        self.titleLabel.autoPinEdgeToSuperviewMargin(.Right)
+        self.titleLabel.autoPin(toTopLayoutGuideOf: self, withInset: 20.0)
+        self.titleLabel.autoSetDimension(.height, toSize: 60.0)
+        self.titleLabel.autoPinEdge(toSuperviewMargin: .left)
+        self.titleLabel.autoPinEdge(toSuperviewMargin: .right)
         
         self.firstNameLabel = UILabel(forAutoLayout: ())
         self.firstNameLabel.text = "First Name:"
-        self.firstNameLabel.textAlignment = .Left
+        self.firstNameLabel.textAlignment = .left
         self.view.addSubview(self.firstNameLabel)
-        self.firstNameLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: self.titleLabel, withOffset: 15.0)
-        self.firstNameLabel.autoPinEdgeToSuperviewMargin(.Left)
-        self.firstNameLabel.autoSetDimension(.Width, toSize: 100.0)
+        self.firstNameLabel.autoPinEdge(.top, to: .bottom, of: self.titleLabel, withOffset: 15.0)
+        self.firstNameLabel.autoPinEdge(toSuperviewMargin: .left)
+        self.firstNameLabel.autoSetDimension(.width, toSize: 100.0)
         
         self.firstNameText = UITextField(forAutoLayout: ())
-        self.firstNameText.borderStyle = .RoundedRect
+        self.firstNameText.borderStyle = .roundedRect
         self.view.addSubview(self.firstNameText)
-        self.firstNameText.autoPinEdge(.Top, toEdge: .Bottom, ofView: self.titleLabel, withOffset: 10.0)
-        self.firstNameText.autoPinEdge(.Left, toEdge: .Right, ofView: self.firstNameLabel, withOffset: 10.0)
-        self.firstNameText.autoPinEdgeToSuperviewMargin(.Right)
+        self.firstNameText.autoPinEdge(.top, to: .bottom, of: self.titleLabel, withOffset: 10.0)
+        self.firstNameText.autoPinEdge(.left, to: .right, of: self.firstNameLabel, withOffset: 10.0)
+        self.firstNameText.autoPinEdge(toSuperviewMargin: .right)
 
         self.lastNameLabel = UILabel(forAutoLayout: ())
         self.lastNameLabel.text = "Last Name:"
-        self.lastNameLabel.textAlignment = .Left
+        self.lastNameLabel.textAlignment = .left
         self.view.addSubview(self.lastNameLabel)
-        self.lastNameLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: self.firstNameLabel, withOffset: 20.0)
-        self.lastNameLabel.autoPinEdgeToSuperviewMargin(.Left)
-        self.lastNameLabel.autoSetDimension(.Width, toSize: 100.0)
+        self.lastNameLabel.autoPinEdge(.top, to: .bottom, of: self.firstNameLabel, withOffset: 20.0)
+        self.lastNameLabel.autoPinEdge(toSuperviewMargin: .left)
+        self.lastNameLabel.autoSetDimension(.width, toSize: 100.0)
         
         self.lastNameText = UITextField(forAutoLayout: ())
-        self.lastNameText.borderStyle = .RoundedRect
+        self.lastNameText.borderStyle = .roundedRect
         self.view.addSubview(self.lastNameText)
-        self.lastNameText.autoPinEdge(.Top, toEdge: .Bottom, ofView: self.firstNameText, withOffset: 10.0)
-        self.lastNameText.autoPinEdge(.Left, toEdge: .Right, ofView: self.lastNameLabel, withOffset: 10.0)
-        self.lastNameText.autoPinEdgeToSuperviewMargin(.Right)
+        self.lastNameText.autoPinEdge(.top, to: .bottom, of: self.firstNameText, withOffset: 10.0)
+        self.lastNameText.autoPinEdge(.left, to: .right, of: self.lastNameLabel, withOffset: 10.0)
+        self.lastNameText.autoPinEdge(toSuperviewMargin: .right)
     }
 }
 

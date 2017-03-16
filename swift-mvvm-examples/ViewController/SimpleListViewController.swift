@@ -7,18 +7,19 @@
 //
 
 import UIKit
+import ReactiveSwift
 import ReactiveCocoa
 
 class SimpleListViewController: UIViewController, UITableViewDataSource {
 
-    private var viewModel = SimpleListViewModel()
+    fileprivate var viewModel = SimpleListViewModel()
     
     var newItemLabel: UILabel!
     var newItemText: UITextField!
     var addNewItem: UIButton!
     var itemsTableView: UITableView!
     
-    var addAction: CocoaAction!
+    var addAction: CocoaAction<Any>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,63 +32,67 @@ class SimpleListViewController: UIViewController, UITableViewDataSource {
             self.itemsTableView.reloadData()
         })
         
-        self.viewModel.itemToAdd <~ self.newItemText.rac_text
-        self.newItemText.rac_text <~ self.viewModel.itemToAdd.producer
-        self.addNewItem.rac_enabled <~ self.viewModel.addEnabled.producer
+        viewModel.itemToAdd <~ newItemText.reactive.continuousTextValues
+        newItemText.reactive.text <~ viewModel.itemToAdd
+        addNewItem.reactive.isEnabled <~ viewModel.addEnabled
         
-        self.addAction = CocoaAction(self.viewModel.addItemAction, input: "")
-        self.addNewItem.addTarget(self.addAction, action: CocoaAction.selector, forControlEvents: .TouchUpInside)
+        addAction = CocoaAction(viewModel.addItemAction)
+        addNewItem.addTarget(addAction, action: CocoaAction<Any>.selector, for: .touchUpInside)
     }    
     
     
     
+    
+    
+    
+    
     func setupUI() {
-        self.view.backgroundColor = UIColor.whiteColor()
+        self.view.backgroundColor = UIColor.white
 
         self.addNewItem = UIButton(forAutoLayout: ())
-        self.addNewItem.setTitle("Add", forState: .Normal)
-        self.addNewItem.setTitleColor(UIColor.blueColor(), forState: .Normal)
-        self.addNewItem.setTitleColor(UIColor.darkGrayColor(), forState: .Highlighted)
-        self.addNewItem.setTitleColor(UIColor.darkGrayColor(), forState: .Disabled)
-        self.addNewItem.backgroundColor = UIColor.lightGrayColor()
+        self.addNewItem.setTitle("Add", for: UIControlState())
+        self.addNewItem.setTitleColor(UIColor.blue, for: UIControlState())
+        self.addNewItem.setTitleColor(UIColor.darkGray, for: .highlighted)
+        self.addNewItem.setTitleColor(UIColor.darkGray, for: .disabled)
+        self.addNewItem.backgroundColor = UIColor.lightGray
         self.view.addSubview(self.addNewItem)
-        self.addNewItem.autoPinToTopLayoutGuideOfViewController(self, withInset: 15.0)
-        self.addNewItem.autoSetDimensionsToSize(CGSizeMake(50.0, 40.0))
-        self.addNewItem.autoPinEdgeToSuperviewMargin(.Right)
+        self.addNewItem.autoPin(toTopLayoutGuideOf: self, withInset: 15.0)
+        self.addNewItem.autoSetDimensions(to: CGSize(width: 50.0, height: 40.0))
+        self.addNewItem.autoPinEdge(toSuperviewMargin: .right)
         
         self.newItemLabel = UILabel(forAutoLayout: ())
         self.newItemLabel.text = "New Item:"
-        self.newItemLabel.textAlignment = .Left
+        self.newItemLabel.textAlignment = .left
         self.view.addSubview(self.newItemLabel)
-        self.newItemLabel.autoPinToTopLayoutGuideOfViewController(self, withInset: 15.0)
-        self.newItemLabel.autoPinEdgeToSuperviewMargin(.Left)
-        self.newItemLabel.autoSetDimension(.Width, toSize: 80.0)
-        self.newItemLabel.autoMatchDimension(.Height, toDimension: .Height, ofView: self.addNewItem)
+        self.newItemLabel.autoPin(toTopLayoutGuideOf: self, withInset: 15.0)
+        self.newItemLabel.autoPinEdge(toSuperviewMargin: .left)
+        self.newItemLabel.autoSetDimension(.width, toSize: 80.0)
+        self.newItemLabel.autoMatch(.height, to: .height, of: self.addNewItem)
         
         self.newItemText = UITextField(forAutoLayout: ())
-        self.newItemText.borderStyle = .RoundedRect
+        self.newItemText.borderStyle = .roundedRect
         self.view.addSubview(self.newItemText)
-        self.newItemText.autoPinToTopLayoutGuideOfViewController(self, withInset: 15.0)
-        self.newItemText.autoPinEdge(.Left, toEdge: .Right, ofView: self.newItemLabel, withOffset: 10.0)
-        self.newItemText.autoPinEdge(.Right, toEdge: .Left, ofView: self.addNewItem, withOffset: -10.0)
-        self.newItemText.autoMatchDimension(.Height, toDimension: .Height, ofView: self.addNewItem)
+        self.newItemText.autoPin(toTopLayoutGuideOf: self, withInset: 15.0)
+        self.newItemText.autoPinEdge(.left, to: .right, of: self.newItemLabel, withOffset: 10.0)
+        self.newItemText.autoPinEdge(.right, to: .left, of: self.addNewItem, withOffset: -10.0)
+        self.newItemText.autoMatch(.height, to: .height, of: self.addNewItem)
         
         self.itemsTableView = UITableView(forAutoLayout: ())
-        self.itemsTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        self.itemsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         self.itemsTableView.dataSource = self
         self.view.addSubview(self.itemsTableView)
-        self.itemsTableView.autoPinEdgesToSuperviewEdgesWithInsets(UIEdgeInsetsZero, excludingEdge: .Top)
-        self.itemsTableView.autoPinEdge(.Top, toEdge: .Bottom, ofView: self.addNewItem, withOffset: 15.0)
+        self.itemsTableView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets.zero, excludingEdge: .top)
+        self.itemsTableView.autoPinEdge(.top, to: .bottom, of: self.addNewItem, withOffset: 15.0)
     }
     
     // MARK: - Table View
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.viewModel.items.value.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let item = self.viewModel.items.value[indexPath.row]
         cell.textLabel!.text = item.displayName.value
         return cell

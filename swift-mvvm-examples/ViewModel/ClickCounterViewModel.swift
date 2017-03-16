@@ -7,45 +7,36 @@
 //
 
 import Foundation
+import ReactiveSwift
 import ReactiveCocoa
 import Result
 
-public class ClickCounterViewModel {
+open class ClickCounterViewModel {
 
-    public let numberOfClicks = MutableProperty(0)
+    open let numberOfClicks = MutableProperty(0)
     
-    public lazy var clickEnabled: AnyProperty<Bool> = {
-        let property = MutableProperty(false)
-        
-        property <~ self.numberOfClicks.producer
-            .map { $0 <= 3 }
-        
-        return AnyProperty(property)
+    open lazy var clickEnabled: Property<Bool> = {
+        return Property(initial: false, then: self.numberOfClicks.producer.map { $0 <= 3 })
     }()
     
-    public lazy var resetEnabled: AnyProperty<Bool> = {
-        let property = MutableProperty(false)
-        
-        property <~ self.numberOfClicks.producer
-            .map { $0 > 0 }
-        
-        return AnyProperty(property)
+    open lazy var resetEnabled: Property<Bool> = {
+        return Property(initial: false, then: self.numberOfClicks.producer.map { $0 > 3 })
     }()
     
-    public lazy var clickCountDisplay: SignalProducer<String, NoError> = {
+    open lazy var clickCountDisplay: SignalProducer<String, NoError> = {
         return self.numberOfClicks.producer
             .map { return "You've clicked \($0) times" }
     }()
     
-    public lazy var registerClickAction: Action<AnyObject?, AnyObject, NSError> = {
-        return Action<AnyObject?, AnyObject, NSError>(enabledIf: self.clickEnabled, { _ in
+    open lazy var registerClickAction: Action<(), (), NSError> = {
+        return Action<(), (), NSError>(enabledIf: self.clickEnabled, { _ in
             self.numberOfClicks.value += 1
             return SignalProducer.empty
         })
     }()
     
-    public lazy var resetClicksAction: Action<AnyObject?, AnyObject, NSError> = {
-        return Action<AnyObject?, AnyObject, NSError>(enabledIf: self.resetEnabled, { _ in
+    open lazy var resetClicksAction: Action<(), (), NSError> = {
+        return Action<(), (), NSError>(enabledIf: self.resetEnabled, { _ in
             self.numberOfClicks.value = 0
             return SignalProducer.empty
         })

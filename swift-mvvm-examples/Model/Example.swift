@@ -9,14 +9,14 @@
 import Foundation
 
 public enum ExampleType {
-    case HelloWorld, ClickCounter, SimpleList
+    case helloWorld, clickCounter, simpleList
 }
 
-public class Example {
+open class Example {
     
-    public let type: ExampleType
-    public let title: String
-    public let description: String
+    open let type: ExampleType
+    open let title: String
+    open let description: String
     
     init(type: ExampleType, title: String, description: String) {
         self.type = type

@@ -1,3 +1,4 @@
-github "smileyborg/PureLayout" "v3.0.2"
-github "antitypical/Result" "2.1.3"
-github "ReactiveCocoa/ReactiveCocoa" "v4.2.2"
+github "PureLayout/PureLayout" "v3.0.2"
+github "ReactiveCocoa/ReactiveCocoa" "5.0.1"
+github "ReactiveCocoa/ReactiveSwift" "1.1.0"
+github "antitypical/Result" "3.2.1"

@@ -7,37 +7,38 @@
 //
 
 import Foundation
+import ReactiveSwift
 import ReactiveCocoa
 
-public class User {}
+open class User {}
 
-public class LoginViewModel {
-    public let userName = MutableProperty<String?>(nil)
-    public let password = MutableProperty<String?>(nil)
+open class LoginViewModel {
+    open let userName = MutableProperty<String?>(nil)
+    open let password = MutableProperty<String?>(nil)
     
-    public lazy var loginEnabled: AnyProperty<Bool> = {
+    open lazy var loginEnabled: Property<Bool> = {
         let property = MutableProperty(false)
         
-        property <~ combineLatest(self.userName.producer, self.password.producer)
+        property <~ SignalProducer.combineLatest(self.userName.producer, self.password.producer)
             .map { userName, password in
                 if let userName = userName,
-                    password = password {
+                    let password = password {
                         return true
                 } else {
                     return false
                 }
             }
         
-        return AnyProperty(property)
+        return Property(property)
     }()
     
-    public lazy var loginAction: Action<(String, String), User, NSError> = {
+    open lazy var loginAction: Action<(String, String), User, NSError> = {
         return Action(enabledIf: self.loginEnabled, { username, password in
             return self.login(username, password: password)
         })
     }()
 
-    private func login(username: String, password: String) -> SignalProducer<User, NSError> {
+    fileprivate func login(_ username: String, password: String) -> SignalProducer<User, NSError> {
         return SignalProducer { observer, disposable in
             observer.sendCompleted()
         }

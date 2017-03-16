@@ -7,19 +7,20 @@
 //
 
 import UIKit
+import ReactiveSwift
 import ReactiveCocoa
 
 class ClickCounterViewController: UIViewController {
     
-    private var viewModel = ClickCounterViewModel()
+    fileprivate var viewModel = ClickCounterViewModel()
     
     var clickCountLabel: UILabel!
     var clickButton: UIButton!
     var clickAlertLabel: UILabel!
     var resetButton: UIButton!
     
-    var clickAction: CocoaAction!
-    var resetAction: CocoaAction!
+    var clickAction: CocoaAction<Any>!
+    var resetAction: CocoaAction<Any>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,61 +29,66 @@ class ClickCounterViewController: UIViewController {
     }
     
     func setupBindings() {
-        self.clickCountLabel.rac_text <~ self.viewModel.clickCountDisplay
-        self.clickButton.rac_enabled <~ self.viewModel.clickEnabled.producer
-        self.resetButton.rac_enabled <~ self.viewModel.resetEnabled.producer
-        self.resetButton.rac_hidden <~ self.viewModel.resetEnabled.producer.map { !$0 }
-        self.clickAlertLabel.rac_hidden <~ self.viewModel.resetEnabled.producer.map { !$0 }
+        // Bind future values
+        clickCountLabel.reactive.text <~ viewModel.clickCountDisplay
+        clickButton.reactive.isEnabled <~ viewModel.clickEnabled
+        resetButton.reactive.isEnabled <~ viewModel.resetEnabled
+        resetButton.reactive.isHidden <~ viewModel.resetEnabled.negated
+        clickAlertLabel.reactive.isHidden <~ viewModel.resetEnabled.negated
         
-        self.clickAction = CocoaAction(self.viewModel.registerClickAction, input: 0)
-        self.clickButton.addTarget(clickAction, action: CocoaAction.selector, forControlEvents: .TouchUpInside)
+        clickAction = CocoaAction(viewModel.registerClickAction)
+        clickButton.addTarget(clickAction, action: CocoaAction<Any>.selector, for: .touchUpInside)
 
-        self.resetAction = CocoaAction(self.viewModel.resetClicksAction, input: 0)
-        self.resetButton.addTarget(resetAction, action: CocoaAction.selector, forControlEvents: .TouchUpInside)
+        resetAction = CocoaAction(viewModel.resetClicksAction)
+        resetButton.addTarget(resetAction, action: CocoaAction<Any>.selector, for: .touchUpInside)
     }
 
     
     
+    
+    
+    
+    
     func setupUI() {
-        self.view.backgroundColor = UIColor.whiteColor()
+        self.view.backgroundColor = UIColor.white
         
         self.clickCountLabel = UILabel(forAutoLayout: ())
-        self.clickCountLabel.textAlignment = .Center
-        self.clickCountLabel.backgroundColor = UIColor.greenColor()
-        self.clickCountLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
+        self.clickCountLabel.textAlignment = .center
+        self.clickCountLabel.backgroundColor = UIColor.green
+        self.clickCountLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
         self.view.addSubview(self.clickCountLabel)
-        self.clickCountLabel.autoPinToTopLayoutGuideOfViewController(self, withInset: 20.0)
-        self.clickCountLabel.autoSetDimension(.Height, toSize: 60.0)
-        self.clickCountLabel.autoPinEdgeToSuperviewMargin(.Left)
-        self.clickCountLabel.autoPinEdgeToSuperviewMargin(.Right)
+        self.clickCountLabel.autoPin(toTopLayoutGuideOf: self, withInset: 20.0)
+        self.clickCountLabel.autoSetDimension(.height, toSize: 60.0)
+        self.clickCountLabel.autoPinEdge(toSuperviewMargin: .left)
+        self.clickCountLabel.autoPinEdge(toSuperviewMargin: .right)
         
         self.clickButton = UIButton(forAutoLayout: ())
-        self.clickButton.setTitle("Click Me", forState: .Normal)
-        self.clickButton.setTitleColor(UIColor.blueColor(), forState: .Normal)
-        self.clickButton.setTitleColor(UIColor.orangeColor(), forState: .Disabled)
+        self.clickButton.setTitle("Click Me", for: UIControlState())
+        self.clickButton.setTitleColor(UIColor.blue, for: UIControlState())
+        self.clickButton.setTitleColor(UIColor.orange, for: .disabled)
         self.view.addSubview(self.clickButton)
-        self.clickButton.autoPinEdge(.Top, toEdge: .Bottom, ofView: self.clickCountLabel, withOffset: 20.0)
-        self.clickButton.autoSetDimension(.Height, toSize: 40.0)
-        self.clickButton.autoPinEdgeToSuperviewMargin(.Left)
-        self.clickButton.autoPinEdgeToSuperviewMargin(.Right)
+        self.clickButton.autoPinEdge(.top, to: .bottom, of: self.clickCountLabel, withOffset: 20.0)
+        self.clickButton.autoSetDimension(.height, toSize: 40.0)
+        self.clickButton.autoPinEdge(toSuperviewMargin: .left)
+        self.clickButton.autoPinEdge(toSuperviewMargin: .right)
         
         self.clickAlertLabel = UILabel(forAutoLayout: ())
         self.clickAlertLabel.numberOfLines = 2
         self.clickAlertLabel.text = "That's too many clicks! Please stop before you wear out your fingers."
-        self.clickAlertLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+        self.clickAlertLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
         self.view.addSubview(self.clickAlertLabel)
-        self.clickAlertLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: self.clickButton, withOffset: 20.0)
-        self.clickAlertLabel.autoPinEdgeToSuperviewMargin(.Left)
-        self.clickAlertLabel.autoPinEdgeToSuperviewMargin(.Right)
+        self.clickAlertLabel.autoPinEdge(.top, to: .bottom, of: self.clickButton, withOffset: 20.0)
+        self.clickAlertLabel.autoPinEdge(toSuperviewMargin: .left)
+        self.clickAlertLabel.autoPinEdge(toSuperviewMargin: .right)
         
         self.resetButton = UIButton(forAutoLayout: ())
-        self.resetButton.setTitle("Reset Clicks", forState: .Normal)
-        self.resetButton.setTitleColor(UIColor.blueColor(), forState: .Normal)
-        self.resetButton.setTitleColor(UIColor.orangeColor(), forState: .Disabled)
+        self.resetButton.setTitle("Reset Clicks", for: UIControlState())
+        self.resetButton.setTitleColor(UIColor.blue, for: UIControlState())
+        self.resetButton.setTitleColor(UIColor.orange, for: .disabled)
         self.view.addSubview(self.resetButton)
-        self.resetButton.autoPinEdge(.Top, toEdge: .Bottom, ofView: self.clickAlertLabel, withOffset: 20.0)
-        self.resetButton.autoSetDimension(.Height, toSize: 40.0)
-        self.resetButton.autoPinEdgeToSuperviewMargin(.Left)
-        self.resetButton.autoPinEdgeToSuperviewMargin(.Right)
+        self.resetButton.autoPinEdge(.top, to: .bottom, of: self.clickAlertLabel, withOffset: 20.0)
+        self.resetButton.autoSetDimension(.height, toSize: 40.0)
+        self.resetButton.autoPinEdge(toSuperviewMargin: .left)
+        self.resetButton.autoPinEdge(toSuperviewMargin: .right)
     }
 }

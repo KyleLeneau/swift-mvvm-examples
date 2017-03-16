@@ -11,7 +11,7 @@ import UIKit
 class ExampleCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: .Subtitle, reuseIdentifier: reuseIdentifier)
+        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -22,52 +22,52 @@ class ExampleCell: UITableViewCell {
 class MasterViewController: UITableViewController {
 
     let examples = [
-        Example(type: .HelloWorld, title: "Hello World", description: "Simple Textbox form that updates a UILabel"),
-        Example(type: .ClickCounter, title: "Click Counter", description: "Tracking dependencies and enabling inputs"),
-        Example(type: .SimpleList, title: "Simple List", description: "This example demonstrates binding to an array of values.")
+        Example(type: .helloWorld, title: "Hello World", description: "Simple Textbox form that updates a UILabel"),
+        Example(type: .clickCounter, title: "Click Counter", description: "Tracking dependencies and enabling inputs"),
+        Example(type: .simpleList, title: "Simple List", description: "This example demonstrates binding to an array of values.")
     ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Examples"
-        if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+        if UIDevice.current.userInterfaceIdiom == .pad {
             self.clearsSelectionOnViewWillAppear = false
             self.preferredContentSize = CGSize(width: 320.0, height: 600.0)
         }
         
         self.tableView.rowHeight = 90.0
-        self.tableView.registerClass(ExampleCell.self, forCellReuseIdentifier: "Cell")
+        self.tableView.register(ExampleCell.self, forCellReuseIdentifier: "Cell")
     }
 
     // MARK: - Table View
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return examples.count
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let example = examples[indexPath.row] as Example
         cell.textLabel?.text = example.title;
         cell.detailTextLabel?.text = example.description
         return cell
     }
 
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let example = examples[indexPath.row] as Example
         var detailVC: UIViewController?
         
         switch example.type {
-        case .HelloWorld: detailVC = HelloWorldViewController()
-        case .ClickCounter: detailVC = ClickCounterViewController()
-        case .SimpleList: detailVC = SimpleListViewController()
+        case .helloWorld: detailVC = HelloWorldViewController()
+        case .clickCounter: detailVC = ClickCounterViewController()
+        case .simpleList: detailVC = SimpleListViewController()
         }
         
         if let vc = detailVC {
             vc.title = example.title
             let nav = UINavigationController(rootViewController: vc)
             nav.extendedLayoutIncludesOpaqueBars = false
-            nav.edgesForExtendedLayout = .None
+            nav.edgesForExtendedLayout = UIRectEdge()
             self.splitViewController?.showDetailViewController(nav, sender: self)
         }
     }

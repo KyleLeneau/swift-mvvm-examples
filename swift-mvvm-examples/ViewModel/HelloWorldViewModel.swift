@@ -7,17 +7,24 @@
 //
 
 import Foundation
+import ReactiveSwift
 import ReactiveCocoa
 import Result
 
-public class HelloWorldViewModel {
+open class HelloWorldViewModel {
     
-    public let firstName = MutableProperty("")
-    public let lastName = MutableProperty("")
+    open let firstName = MutableProperty<String?>("Planet")
+    open let lastName = MutableProperty<String?>("Earth")
     
-    public var fullName: SignalProducer<String, NoError> {
+    open var fullName: SignalProducer<String, NoError> {
         return firstName.producer
-            .combineLatestWith(lastName.producer)
-            .map({ return "Hello, \($0) \($1)" })
+            .combineLatest(with: lastName.producer)
+            .map {
+                guard let first = $0, let last = $1 else {
+                    return "Hello!"
+                }
+                
+                return "Hello, \(first) \(last)"
+            }
     }
 }

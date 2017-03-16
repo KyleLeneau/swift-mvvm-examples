@@ -12,14 +12,14 @@ class EmptyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.whiteColor()
+        self.view.backgroundColor = UIColor.white
         
         let label = UILabel(forAutoLayout: ())
         label.text = "Select an Example from the left"
-        label.textAlignment = .Center
-        label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
+        label.textAlignment = .center
+        label.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
         self.view.addSubview(label)
-        label.autoPinToTopLayoutGuideOfViewController(self, withInset: 20.0)
-        label.autoPinEdgesToSuperviewEdgesWithInsets(UIEdgeInsetsMake(0.0, 20.0, 20.0, 20.0), excludingEdge: .Top)
+        label.autoPin(toTopLayoutGuideOf: self, withInset: 20.0)
+        label.autoPinEdgesToSuperviewEdges(with: UIEdgeInsetsMake(0.0, 20.0, 20.0, 20.0), excludingEdge: .top)
     }
 }
