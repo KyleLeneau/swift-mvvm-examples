@@ -29,14 +29,14 @@ open class ClickCounterViewModel {
     }()
     
     open lazy var registerClickAction: Action<(), (), NSError> = {
-        return Action<(), (), NSError>(enabledIf: self.clickEnabled, { _ in
+        return Action<(), (), NSError>(enabledIf: self.clickEnabled, execute: { _ in
             self.numberOfClicks.value += 1
             return SignalProducer.empty
         })
     }()
     
     open lazy var resetClicksAction: Action<(), (), NSError> = {
-        return Action<(), (), NSError>(enabledIf: self.resetEnabled, { _ in
+        return Action<(), (), NSError>(enabledIf: self.resetEnabled, execute: { _ in
             self.numberOfClicks.value = 0
             return SignalProducer.empty
         })

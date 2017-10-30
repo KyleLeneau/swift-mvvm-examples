@@ -19,7 +19,12 @@ class EmptyViewController: UIViewController {
         label.textAlignment = .center
         label.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
         self.view.addSubview(label)
-        label.autoPin(toTopLayoutGuideOf: self, withInset: 20.0)
-        label.autoPinEdgesToSuperviewEdges(with: UIEdgeInsetsMake(0.0, 20.0, 20.0, 20.0), excludingEdge: .top)
+
+        NSLayoutConstraint.activate([
+            label.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 20.0),
+            label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20.0),
+            label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 20.0),
+            label.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        ])
     }
 }
