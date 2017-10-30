@@ -33,7 +33,7 @@ open class SimpleListViewModel {
     }()
     
     open lazy var addItemAction: Action<(), (), Error> = {
-        return Action<(), (), Error>(enabledIf: self.addEnabled, { x in
+        return Action<(), (), Error>(enabledIf: self.addEnabled, execute: { x in
             guard let value = self.itemToAdd.value else {
                 return SignalProducer(error: .badItem)
             }

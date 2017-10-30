@@ -33,7 +33,7 @@ open class LoginViewModel {
     }()
     
     open lazy var loginAction: Action<(String, String), User, NSError> = {
-        return Action(enabledIf: self.loginEnabled, { username, password in
+        return Action(enabledIf: self.loginEnabled, execute: { username, password in
             return self.login(username, password: password)
         })
     }()

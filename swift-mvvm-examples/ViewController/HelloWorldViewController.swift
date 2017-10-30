@@ -51,40 +51,50 @@ class HelloWorldViewController: UIViewController {
         self.titleLabel.backgroundColor = UIColor.green
         self.titleLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
         self.view.addSubview(self.titleLabel)
-        self.titleLabel.autoPin(toTopLayoutGuideOf: self, withInset: 20.0)
-        self.titleLabel.autoSetDimension(.height, toSize: 60.0)
-        self.titleLabel.autoPinEdge(toSuperviewMargin: .left)
-        self.titleLabel.autoPinEdge(toSuperviewMargin: .right)
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 20.0),
+            titleLabel.heightAnchor.constraint(equalToConstant: 60.0),
+            titleLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor)
+            ])
         
         self.firstNameLabel = UILabel(forAutoLayout: ())
         self.firstNameLabel.text = "First Name:"
         self.firstNameLabel.textAlignment = .left
         self.view.addSubview(self.firstNameLabel)
-        self.firstNameLabel.autoPinEdge(.top, to: .bottom, of: self.titleLabel, withOffset: 15.0)
-        self.firstNameLabel.autoPinEdge(toSuperviewMargin: .left)
-        self.firstNameLabel.autoSetDimension(.width, toSize: 100.0)
+        NSLayoutConstraint.activate([
+            firstNameLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 15.0),
+            firstNameLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+            firstNameLabel.widthAnchor.constraint(equalToConstant: 100.0),
+            ])
         
         self.firstNameText = UITextField(forAutoLayout: ())
         self.firstNameText.borderStyle = .roundedRect
         self.view.addSubview(self.firstNameText)
-        self.firstNameText.autoPinEdge(.top, to: .bottom, of: self.titleLabel, withOffset: 10.0)
-        self.firstNameText.autoPinEdge(.left, to: .right, of: self.firstNameLabel, withOffset: 10.0)
-        self.firstNameText.autoPinEdge(toSuperviewMargin: .right)
+        NSLayoutConstraint.activate([
+            firstNameText.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10.0),
+            firstNameText.leadingAnchor.constraint(equalTo: firstNameLabel.trailingAnchor, constant: 10.0),
+            firstNameText.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+            ])
 
         self.lastNameLabel = UILabel(forAutoLayout: ())
         self.lastNameLabel.text = "Last Name:"
         self.lastNameLabel.textAlignment = .left
         self.view.addSubview(self.lastNameLabel)
-        self.lastNameLabel.autoPinEdge(.top, to: .bottom, of: self.firstNameLabel, withOffset: 20.0)
-        self.lastNameLabel.autoPinEdge(toSuperviewMargin: .left)
-        self.lastNameLabel.autoSetDimension(.width, toSize: 100.0)
+        NSLayoutConstraint.activate([
+            lastNameLabel.topAnchor.constraint(equalTo: firstNameLabel.bottomAnchor, constant: 20.0),
+            lastNameLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+            lastNameLabel.widthAnchor.constraint(equalToConstant: 100.0),
+            ])
         
         self.lastNameText = UITextField(forAutoLayout: ())
         self.lastNameText.borderStyle = .roundedRect
         self.view.addSubview(self.lastNameText)
-        self.lastNameText.autoPinEdge(.top, to: .bottom, of: self.firstNameText, withOffset: 10.0)
-        self.lastNameText.autoPinEdge(.left, to: .right, of: self.lastNameLabel, withOffset: 10.0)
-        self.lastNameText.autoPinEdge(toSuperviewMargin: .right)
+        NSLayoutConstraint.activate([
+            lastNameText.topAnchor.constraint(equalTo: firstNameText.bottomAnchor, constant: 10.0),
+            lastNameText.leadingAnchor.constraint(equalTo: lastNameLabel.trailingAnchor, constant: 10.0),
+            lastNameText.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+            ])
     }
 }
 
