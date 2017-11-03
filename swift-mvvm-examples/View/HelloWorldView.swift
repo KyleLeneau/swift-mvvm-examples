@@ -22,13 +22,13 @@ class HelloWorldView: UIView {
     }
 
     fileprivate func setupUI() {
-        self.backgroundColor = UIColor.white
+        backgroundColor = UIColor.white
 
-        self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.titleLabel.textAlignment = .center
-        self.titleLabel.backgroundColor = UIColor.green
-        self.titleLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
-        self.addSubview(self.titleLabel)
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.textAlignment = .center
+        titleLabel.backgroundColor = UIColor.green
+        titleLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
+        addSubview(titleLabel)
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 20.0),
             titleLabel.heightAnchor.constraint(equalToConstant: 60.0),
@@ -36,38 +36,38 @@ class HelloWorldView: UIView {
             titleLabel.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor)
             ])
 
-        self.firstNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.firstNameLabel.text = "First Name:"
-        self.firstNameLabel.textAlignment = .left
-        self.addSubview(self.firstNameLabel)
+        firstNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        firstNameLabel.text = "First Name:"
+        firstNameLabel.textAlignment = .left
+        addSubview(firstNameLabel)
         NSLayoutConstraint.activate([
             firstNameLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 15.0),
             firstNameLabel.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
             firstNameLabel.widthAnchor.constraint(equalToConstant: 100.0),
             ])
 
-        self.firstNameText.translatesAutoresizingMaskIntoConstraints = false
-        self.firstNameText.borderStyle = .roundedRect
-        self.addSubview(self.firstNameText)
+        firstNameText.translatesAutoresizingMaskIntoConstraints = false
+        firstNameText.borderStyle = .roundedRect
+        addSubview(firstNameText)
         NSLayoutConstraint.activate([
             firstNameText.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10.0),
             firstNameText.leadingAnchor.constraint(equalTo: firstNameLabel.trailingAnchor, constant: 10.0),
             firstNameText.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
             ])
 
-        self.lastNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.lastNameLabel.text = "Last Name:"
-        self.lastNameLabel.textAlignment = .left
-        self.addSubview(self.lastNameLabel)
+        lastNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        lastNameLabel.text = "Last Name:"
+        lastNameLabel.textAlignment = .left
+        addSubview(lastNameLabel)
         NSLayoutConstraint.activate([
             lastNameLabel.topAnchor.constraint(equalTo: firstNameLabel.bottomAnchor, constant: 20.0),
             lastNameLabel.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
             lastNameLabel.widthAnchor.constraint(equalToConstant: 100.0),
             ])
 
-        self.lastNameText.translatesAutoresizingMaskIntoConstraints = false
-        self.lastNameText.borderStyle = .roundedRect
-        self.addSubview(self.lastNameText)
+        lastNameText.translatesAutoresizingMaskIntoConstraints = false
+        lastNameText.borderStyle = .roundedRect
+        addSubview(lastNameText)
         NSLayoutConstraint.activate([
             lastNameText.topAnchor.constraint(equalTo: firstNameText.bottomAnchor, constant: 10.0),
             lastNameText.leadingAnchor.constraint(equalTo: lastNameLabel.trailingAnchor, constant: 10.0),

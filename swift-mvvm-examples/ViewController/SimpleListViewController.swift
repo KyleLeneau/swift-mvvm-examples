@@ -13,91 +13,39 @@ import ReactiveCocoa
 class SimpleListViewController: UIViewController, UITableViewDataSource {
 
     fileprivate var viewModel = SimpleListViewModel()
-    
-    var newItemLabel: UILabel!
-    var newItemText: UITextField!
-    var addNewItem: UIButton!
-    var itemsTableView: UITableView!
+    fileprivate var simpleListView = SimpleListView()
     
     var addAction: CocoaAction<Any>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+        setupView()
         setupBindings()
     }
-    
-    func setupBindings() {
-        self.viewModel.items.producer.start({ s in
-            self.itemsTableView.reloadData()
-        })
 
-        viewModel.itemToAdd <~ newItemText.reactive.continuousTextValues
-        newItemText.reactive.text <~ viewModel.itemToAdd
-        addNewItem.reactive.isEnabled <~ viewModel.addEnabled
-
-        addAction = CocoaAction(viewModel.addItemAction)
-        addNewItem.addTarget(addAction, action: CocoaAction<Any>.selector, for: .touchUpInside)
+    private func setupView() {
+        simpleListView.translatesAutoresizingMaskIntoConstraints = false
+        simpleListView.itemsTableView.dataSource = self
+        view.addSubview(simpleListView)
+        NSLayoutConstraint.activate([
+            simpleListView.topAnchor.constraint(equalTo: view.topAnchor),
+            simpleListView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            simpleListView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            simpleListView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            ])
     }
 
+    private func setupBindings() {
+        self.viewModel.items.producer.start({ s in
+            self.simpleListView.itemsTableView.reloadData()
+        })
 
+        viewModel.itemToAdd <~ simpleListView.newItemText.reactive.continuousTextValues
+        simpleListView.newItemText.reactive.text <~ viewModel.itemToAdd
+        simpleListView.addNewItem.reactive.isEnabled <~ viewModel.addEnabled
 
-
-
-
-
-    func setupUI() {
-        self.view.backgroundColor = UIColor.white
-
-        self.addNewItem = UIButton()
-        self.addNewItem.translatesAutoresizingMaskIntoConstraints = false
-        self.addNewItem.setTitle("Add", for: UIControlState())
-        self.addNewItem.setTitleColor(UIColor.blue, for: UIControlState())
-        self.addNewItem.setTitleColor(UIColor.darkGray, for: .highlighted)
-        self.addNewItem.setTitleColor(UIColor.darkGray, for: .disabled)
-        self.addNewItem.backgroundColor = UIColor.lightGray
-        self.view.addSubview(self.addNewItem)
-        NSLayoutConstraint.activate([
-            addNewItem.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 15.0),
-            addNewItem.heightAnchor.constraint(equalToConstant: 40.0),
-            addNewItem.widthAnchor.constraint(equalToConstant: 50.0),
-            addNewItem.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
-            ])
-
-        self.newItemLabel = UILabel()
-        self.newItemLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.newItemLabel.text = "New Item:"
-        self.newItemLabel.textAlignment = .left
-        self.view.addSubview(self.newItemLabel)
-        NSLayoutConstraint.activate([
-            newItemLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 15.0),
-            newItemLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-            newItemLabel.widthAnchor.constraint(equalToConstant: 80.0),
-            newItemLabel.heightAnchor.constraint(equalTo: addNewItem.heightAnchor),
-            ])
-
-        self.newItemText = UITextField()
-        self.newItemText.translatesAutoresizingMaskIntoConstraints = false
-        self.newItemText.borderStyle = .roundedRect
-        self.view.addSubview(self.newItemText)
-        NSLayoutConstraint.activate([
-            newItemText.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 15.0),
-            newItemText.leadingAnchor.constraint(equalTo: newItemLabel.trailingAnchor, constant: 10.0),
-            newItemText.trailingAnchor.constraint(equalTo: addNewItem.leadingAnchor, constant: -10.0),
-            newItemText.heightAnchor.constraint(equalTo: addNewItem.heightAnchor),
-            ])
-
-        self.itemsTableView = UITableView()
-        self.itemsTableView.translatesAutoresizingMaskIntoConstraints = false
-        self.itemsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-        self.itemsTableView.dataSource = self
-        self.view.addSubview(self.itemsTableView)
-        NSLayoutConstraint.activate([
-            itemsTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            itemsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            itemsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            itemsTableView.topAnchor.constraint(equalTo: addNewItem.bottomAnchor, constant: 15.0)
-            ])
+        addAction = CocoaAction(viewModel.addItemAction)
+        simpleListView.addNewItem.addTarget(addAction, action: CocoaAction<Any>.selector, for: .touchUpInside)
     }
 
     // MARK: - Table View

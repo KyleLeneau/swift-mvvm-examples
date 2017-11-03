@@ -11,6 +11,8 @@
 		2715B4B61A6A1EDE00B41887 /* ClickCounterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2715B4B51A6A1EDE00B41887 /* ClickCounterViewModel.swift */; };
 		2715B4B81A6A1EEF00B41887 /* ClickCounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2715B4B71A6A1EEF00B41887 /* ClickCounterViewController.swift */; };
 		273EC2061FACF5E700A6F895 /* HelloWorldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273EC2051FACF5E600A6F895 /* HelloWorldView.swift */; };
+		273EC2081FAD0C3500A6F895 /* ClickCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273EC2071FAD0C3500A6F895 /* ClickCounterView.swift */; };
+		273EC20A1FAD0DF900A6F895 /* SimpleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273EC2091FAD0DF900A6F895 /* SimpleListView.swift */; };
 		273F727C1E79D8AB006D0A3B /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 273F727B1E79D8AB006D0A3B /* ReactiveSwift.framework */; };
 		27B605941A6374E2000EEF76 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27B6058E1A6374E2000EEF76 /* LaunchScreen.xib */; };
 		27B605961A6374E2000EEF76 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27B605921A6374E2000EEF76 /* Images.xcassets */; };
@@ -55,6 +57,8 @@
 		2715B4B51A6A1EDE00B41887 /* ClickCounterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClickCounterViewModel.swift; sourceTree = "<group>"; };
 		2715B4B71A6A1EEF00B41887 /* ClickCounterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClickCounterViewController.swift; sourceTree = "<group>"; };
 		273EC2051FACF5E600A6F895 /* HelloWorldView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelloWorldView.swift; sourceTree = "<group>"; };
+		273EC2071FAD0C3500A6F895 /* ClickCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickCounterView.swift; sourceTree = "<group>"; };
+		273EC2091FAD0DF900A6F895 /* SimpleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleListView.swift; sourceTree = "<group>"; };
 		273F727B1E79D8AB006D0A3B /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/iOS/ReactiveSwift.framework; sourceTree = "<group>"; };
 		27B6058F1A6374E2000EEF76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		27B605921A6374E2000EEF76 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -103,6 +107,8 @@
 			isa = PBXGroup;
 			children = (
 				273EC2051FACF5E600A6F895 /* HelloWorldView.swift */,
+				273EC2071FAD0C3500A6F895 /* ClickCounterView.swift */,
+				273EC2091FAD0DF900A6F895 /* SimpleListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -342,9 +348,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				273EC2081FAD0C3500A6F895 /* ClickCounterView.swift in Sources */,
 				27DDBAB51A74B491004B4ADD /* SimpleListViewController.swift in Sources */,
 				2715B4B81A6A1EEF00B41887 /* ClickCounterViewController.swift in Sources */,
 				27B605A41A63751A000EEF76 /* AppDelegate.swift in Sources */,
+				273EC20A1FAD0DF900A6F895 /* SimpleListView.swift in Sources */,
 				27B605AD1A637ACF000EEF76 /* HelloWorldViewModel.swift in Sources */,
 				273EC2061FACF5E700A6F895 /* HelloWorldView.swift in Sources */,
 				2715B4B41A6A0ADC00B41887 /* EmptyViewController.swift in Sources */,
