@@ -46,7 +46,8 @@ class HelloWorldViewController: UIViewController {
     fileprivate func setupUI() {
         self.view.backgroundColor = UIColor.white
         
-        self.titleLabel = UILabel(forAutoLayout: ())
+        self.titleLabel = UILabel()
+        self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
         self.titleLabel.textAlignment = .center
         self.titleLabel.backgroundColor = UIColor.green
         self.titleLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
@@ -58,7 +59,8 @@ class HelloWorldViewController: UIViewController {
             titleLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor)
             ])
         
-        self.firstNameLabel = UILabel(forAutoLayout: ())
+        self.firstNameLabel = UILabel()
+        self.firstNameLabel.translatesAutoresizingMaskIntoConstraints = false
         self.firstNameLabel.text = "First Name:"
         self.firstNameLabel.textAlignment = .left
         self.view.addSubview(self.firstNameLabel)
@@ -68,7 +70,8 @@ class HelloWorldViewController: UIViewController {
             firstNameLabel.widthAnchor.constraint(equalToConstant: 100.0),
             ])
         
-        self.firstNameText = UITextField(forAutoLayout: ())
+        self.firstNameText = UITextField()
+        self.firstNameText.translatesAutoresizingMaskIntoConstraints = false
         self.firstNameText.borderStyle = .roundedRect
         self.view.addSubview(self.firstNameText)
         NSLayoutConstraint.activate([
@@ -77,7 +80,8 @@ class HelloWorldViewController: UIViewController {
             firstNameText.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
             ])
 
-        self.lastNameLabel = UILabel(forAutoLayout: ())
+        self.lastNameLabel = UILabel()
+        self.lastNameLabel.translatesAutoresizingMaskIntoConstraints = false
         self.lastNameLabel.text = "Last Name:"
         self.lastNameLabel.textAlignment = .left
         self.view.addSubview(self.lastNameLabel)
@@ -87,7 +91,8 @@ class HelloWorldViewController: UIViewController {
             lastNameLabel.widthAnchor.constraint(equalToConstant: 100.0),
             ])
         
-        self.lastNameText = UITextField(forAutoLayout: ())
+        self.lastNameText = UITextField()
+        self.lastNameText.translatesAutoresizingMaskIntoConstraints = false
         self.lastNameText.borderStyle = .roundedRect
         self.view.addSubview(self.lastNameText)
         NSLayoutConstraint.activate([

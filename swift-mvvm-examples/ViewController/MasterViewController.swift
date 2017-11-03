@@ -23,7 +23,7 @@ class MasterViewController: UITableViewController {
 
     let examples = [
         Example(type: .helloWorld, title: "Hello World", description: "Simple Textbox form that updates a UILabel"),
-//        Example(type: .clickCounter, title: "Click Counter", description: "Tracking dependencies and enabling inputs"),
+        Example(type: .clickCounter, title: "Click Counter", description: "Tracking dependencies and enabling inputs"),
 //        Example(type: .simpleList, title: "Simple List", description: "This example demonstrates binding to an array of values.")
     ]
 
