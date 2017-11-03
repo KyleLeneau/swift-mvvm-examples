@@ -23,67 +23,82 @@ class SimpleListViewController: UIViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        setupUI()
-//        setupBindings()
+        setupUI()
+        setupBindings()
     }
     
-//    func setupBindings() {
-//        self.viewModel.items.producer.start({ s in
-//            self.itemsTableView.reloadData()
-//        })
-//        
-//        viewModel.itemToAdd <~ newItemText.reactive.continuousTextValues
-//        newItemText.reactive.text <~ viewModel.itemToAdd
-//        addNewItem.reactive.isEnabled <~ viewModel.addEnabled
-//        
-//        addAction = CocoaAction(viewModel.addItemAction)
-//        addNewItem.addTarget(addAction, action: CocoaAction<Any>.selector, for: .touchUpInside)
-//    }    
-    
-    
-    
-    
-    
-    
-    
-//    func setupUI() {
-//        self.view.backgroundColor = UIColor.white
-//
-//        self.addNewItem = UIButton(forAutoLayout: ())
-//        self.addNewItem.setTitle("Add", for: UIControlState())
-//        self.addNewItem.setTitleColor(UIColor.blue, for: UIControlState())
-//        self.addNewItem.setTitleColor(UIColor.darkGray, for: .highlighted)
-//        self.addNewItem.setTitleColor(UIColor.darkGray, for: .disabled)
-//        self.addNewItem.backgroundColor = UIColor.lightGray
-//        self.view.addSubview(self.addNewItem)
-//        self.addNewItem.autoPin(toTopLayoutGuideOf: self, withInset: 15.0)
-//        self.addNewItem.autoSetDimensions(to: CGSize(width: 50.0, height: 40.0))
-//        self.addNewItem.autoPinEdge(toSuperviewMargin: .right)
-//
-//        self.newItemLabel = UILabel(forAutoLayout: ())
-//        self.newItemLabel.text = "New Item:"
-//        self.newItemLabel.textAlignment = .left
-//        self.view.addSubview(self.newItemLabel)
-//        self.newItemLabel.autoPin(toTopLayoutGuideOf: self, withInset: 15.0)
-//        self.newItemLabel.autoPinEdge(toSuperviewMargin: .left)
-//        self.newItemLabel.autoSetDimension(.width, toSize: 80.0)
-//        self.newItemLabel.autoMatch(.height, to: .height, of: self.addNewItem)
-//
-//        self.newItemText = UITextField(forAutoLayout: ())
-//        self.newItemText.borderStyle = .roundedRect
-//        self.view.addSubview(self.newItemText)
-//        self.newItemText.autoPin(toTopLayoutGuideOf: self, withInset: 15.0)
-//        self.newItemText.autoPinEdge(.left, to: .right, of: self.newItemLabel, withOffset: 10.0)
-//        self.newItemText.autoPinEdge(.right, to: .left, of: self.addNewItem, withOffset: -10.0)
-//        self.newItemText.autoMatch(.height, to: .height, of: self.addNewItem)
-//
-//        self.itemsTableView = UITableView(forAutoLayout: ())
-//        self.itemsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-//        self.itemsTableView.dataSource = self
-//        self.view.addSubview(self.itemsTableView)
-//        self.itemsTableView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets.zero, excludingEdge: .top)
-//        self.itemsTableView.autoPinEdge(.top, to: .bottom, of: self.addNewItem, withOffset: 15.0)
-//    }
+    func setupBindings() {
+        self.viewModel.items.producer.start({ s in
+            self.itemsTableView.reloadData()
+        })
+
+        viewModel.itemToAdd <~ newItemText.reactive.continuousTextValues
+        newItemText.reactive.text <~ viewModel.itemToAdd
+        addNewItem.reactive.isEnabled <~ viewModel.addEnabled
+
+        addAction = CocoaAction(viewModel.addItemAction)
+        addNewItem.addTarget(addAction, action: CocoaAction<Any>.selector, for: .touchUpInside)
+    }
+
+
+
+
+
+
+
+    func setupUI() {
+        self.view.backgroundColor = UIColor.white
+
+        self.addNewItem = UIButton()
+        self.addNewItem.translatesAutoresizingMaskIntoConstraints = false
+        self.addNewItem.setTitle("Add", for: UIControlState())
+        self.addNewItem.setTitleColor(UIColor.blue, for: UIControlState())
+        self.addNewItem.setTitleColor(UIColor.darkGray, for: .highlighted)
+        self.addNewItem.setTitleColor(UIColor.darkGray, for: .disabled)
+        self.addNewItem.backgroundColor = UIColor.lightGray
+        self.view.addSubview(self.addNewItem)
+        NSLayoutConstraint.activate([
+            addNewItem.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 15.0),
+            addNewItem.heightAnchor.constraint(equalToConstant: 40.0),
+            addNewItem.widthAnchor.constraint(equalToConstant: 50.0),
+            addNewItem.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+            ])
+
+        self.newItemLabel = UILabel()
+        self.newItemLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.newItemLabel.text = "New Item:"
+        self.newItemLabel.textAlignment = .left
+        self.view.addSubview(self.newItemLabel)
+        NSLayoutConstraint.activate([
+            newItemLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 15.0),
+            newItemLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+            newItemLabel.widthAnchor.constraint(equalToConstant: 80.0),
+            newItemLabel.heightAnchor.constraint(equalTo: addNewItem.heightAnchor),
+            ])
+
+        self.newItemText = UITextField()
+        self.newItemText.translatesAutoresizingMaskIntoConstraints = false
+        self.newItemText.borderStyle = .roundedRect
+        self.view.addSubview(self.newItemText)
+        NSLayoutConstraint.activate([
+            newItemText.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 15.0),
+            newItemText.leadingAnchor.constraint(equalTo: newItemLabel.trailingAnchor, constant: 10.0),
+            newItemText.trailingAnchor.constraint(equalTo: addNewItem.leadingAnchor, constant: -10.0),
+            newItemText.heightAnchor.constraint(equalTo: addNewItem.heightAnchor),
+            ])
+
+        self.itemsTableView = UITableView()
+        self.itemsTableView.translatesAutoresizingMaskIntoConstraints = false
+        self.itemsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        self.itemsTableView.dataSource = self
+        self.view.addSubview(self.itemsTableView)
+        NSLayoutConstraint.activate([
+            itemsTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            itemsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            itemsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            itemsTableView.topAnchor.constraint(equalTo: addNewItem.bottomAnchor, constant: 15.0)
+            ])
+    }
 
     // MARK: - Table View
     
