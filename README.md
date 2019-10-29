@@ -1,8 +1,8 @@
 # MVVM Examples with Swift [![Circle CI](https://circleci.com/gh/KyleLeneau/swift-mvvm-examples.svg?style=svg)](https://circleci.com/gh/KyleLeneau/swift-mvvm-examples) ![](https://www.bitrise.io/app/50d9edc2c40205b2.svg?token=xNUbXmTg8WpJVD1uinozbw&branch=master)
-Using [KnockoutJS](http://knockoutjs.com/examples/) examples as a starting point, I hope to point out how to use MVVM in various views of on iOS application.
+Using [KnockoutJS](http://knockoutjs.com/examples/) examples as a starting point, I hope to show how to use MVVM in various views of an iOS application.
 
 ## Brief
-Most of the view code that I am going to write will be written in code so that the concepts are easily digestable without needing to consult a storyboard (with the exception of the window and root view controller).
+Most of the view code that I am going to write will be written in code so that the concepts are easily digestable.  No need to consult a storyboard (with the exception of the window and root view controller).
 
 ## Lessons
 1. Hello iPhone, simple text box form that responds to text changes and updates a label
