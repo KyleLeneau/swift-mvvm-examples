@@ -26,7 +26,7 @@ class ClickCounterView: UIView {
         clickCountLabel.translatesAutoresizingMaskIntoConstraints = false
         clickCountLabel.textAlignment = .center
         clickCountLabel.backgroundColor = UIColor.green
-        clickCountLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
+        clickCountLabel.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.headline)
         addSubview(clickCountLabel)
         NSLayoutConstraint.activate([
             clickCountLabel.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 20.0),
@@ -36,8 +36,8 @@ class ClickCounterView: UIView {
             ])
 
         clickButton.translatesAutoresizingMaskIntoConstraints = false
-        clickButton.setTitle("Click Me", for: UIControlState())
-        clickButton.setTitleColor(UIColor.blue, for: UIControlState())
+        clickButton.setTitle("Click Me", for: UIControl.State())
+        clickButton.setTitleColor(UIColor.blue, for: UIControl.State())
         clickButton.setTitleColor(UIColor.orange, for: .disabled)
         addSubview(clickButton)
         NSLayoutConstraint.activate([
@@ -50,7 +50,7 @@ class ClickCounterView: UIView {
         clickAlertLabel.translatesAutoresizingMaskIntoConstraints = false
         clickAlertLabel.numberOfLines = 2
         clickAlertLabel.text = "That's too many clicks! Please stop before you wear out your fingers."
-        clickAlertLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
+        clickAlertLabel.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.body)
         addSubview(clickAlertLabel)
         NSLayoutConstraint.activate([
             clickAlertLabel.topAnchor.constraint(equalTo: clickButton.bottomAnchor, constant: 20.0),
@@ -59,8 +59,8 @@ class ClickCounterView: UIView {
             ])
 
         resetButton.translatesAutoresizingMaskIntoConstraints = false
-        resetButton.setTitle("Reset Clicks", for: UIControlState())
-        resetButton.setTitleColor(UIColor.blue, for: UIControlState())
+        resetButton.setTitle("Reset Clicks", for: UIControl.State())
+        resetButton.setTitleColor(UIColor.blue, for: UIControl.State())
         resetButton.setTitleColor(UIColor.orange, for: .disabled)
         addSubview(resetButton)
         NSLayoutConstraint.activate([

@@ -27,7 +27,7 @@ class HelloWorldView: UIView {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.textAlignment = .center
         titleLabel.backgroundColor = UIColor.green
-        titleLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
+        titleLabel.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.headline)
         addSubview(titleLabel)
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 20.0),

@@ -24,8 +24,8 @@ class SimpleListView: UIView {
         backgroundColor = UIColor.white
 
         addNewItem.translatesAutoresizingMaskIntoConstraints = false
-        addNewItem.setTitle("Add", for: UIControlState())
-        addNewItem.setTitleColor(UIColor.blue, for: UIControlState())
+        addNewItem.setTitle("Add", for: UIControl.State())
+        addNewItem.setTitleColor(UIColor.blue, for: UIControl.State())
         addNewItem.setTitleColor(UIColor.darkGray, for: .highlighted)
         addNewItem.setTitleColor(UIColor.darkGray, for: .disabled)
         addNewItem.backgroundColor = UIColor.lightGray
