@@ -10,31 +10,31 @@ import Foundation
 import ReactiveSwift
 import ReactiveCocoa
 
-open class ClickCounterViewModel {
+public class ClickCounterViewModel {
 
-    open let numberOfClicks = MutableProperty(0)
+    public let numberOfClicks = MutableProperty(0)
     
-    open lazy var clickEnabled: Property<Bool> = {
+    public lazy var clickEnabled: Property<Bool> = {
         return Property(initial: false, then: self.numberOfClicks.producer.map { $0 <= 3 })
     }()
     
-    open lazy var resetEnabled: Property<Bool> = {
+    public lazy var resetEnabled: Property<Bool> = {
         return Property(initial: false, then: self.numberOfClicks.producer.map { $0 > 3 })
     }()
     
-    open lazy var clickCountDisplay: SignalProducer<String, Never> = {
+    public lazy var clickCountDisplay: SignalProducer<String, Never> = {
         return self.numberOfClicks.producer
             .map { return "You've clicked \($0) times" }
     }()
     
-    open lazy var registerClickAction: Action<(), (), NSError> = {
+    public lazy var registerClickAction: Action<(), (), NSError> = {
         return Action<(), (), NSError>(enabledIf: self.clickEnabled, execute: { _ in
             self.numberOfClicks.value += 1
             return SignalProducer.empty
         })
     }()
     
-    open lazy var resetClicksAction: Action<(), (), NSError> = {
+    public lazy var resetClicksAction: Action<(), (), NSError> = {
         return Action<(), (), NSError>(enabledIf: self.resetEnabled, execute: { _ in
             self.numberOfClicks.value = 0
             return SignalProducer.empty
