@@ -17,7 +17,7 @@ class EmptyViewController: UIViewController {
         let label = UILabel(forAutoLayout: ())
         label.text = "Select an Example from the left"
         label.textAlignment = .center
-        label.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
+        label.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.headline)
         self.view.addSubview(label)
 
         NSLayoutConstraint.activate([
