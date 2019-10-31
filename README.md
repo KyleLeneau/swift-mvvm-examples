@@ -11,7 +11,6 @@ Most of the view code that I am going to write will be written in code so that t
 
 ## Dependencies
 - [ReactiveCocoa](http://github.com/reactivecocoa/reactivecocoa) This is the key to binding, signal chaining and other awesome stuff.
-- [PureLayout](https://github.com/smileyborg/PureLayout) Simple way to do declaritive auto layout without the extra keystrokes.
 
 # Getting started
 
