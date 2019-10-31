@@ -10,29 +10,29 @@ import Foundation
 import ReactiveSwift
 import ReactiveCocoa
 
-open class SimpleListItemViewModel {
+public class SimpleListItemViewModel {
     
-    open let displayName = MutableProperty<String?>(nil)
+    public let displayName = MutableProperty<String?>(nil)
     
-    init(name: String) {
+    public init(name: String) {
         displayName.value = name
     }
 }
 
-open class SimpleListViewModel {
+public class SimpleListViewModel {
     
     public enum Error: Swift.Error {
         case badItem
     }
     
-    open let items = MutableProperty([SimpleListItemViewModel]())
-    open let itemToAdd = MutableProperty<String?>(nil)
+    public let items = MutableProperty([SimpleListItemViewModel]())
+    public let itemToAdd = MutableProperty<String?>(nil)
     
-    open lazy var addEnabled: Property<Bool> = {
+    public lazy var addEnabled: Property<Bool> = {
         return Property(initial: false, then: self.itemToAdd.producer.map { $0 != nil && !$0!.isEmpty })
     }()
     
-    open lazy var addItemAction: Action<(), (), Error> = {
+    public lazy var addItemAction: Action<(), (), Error> = {
         return Action<(), (), Error>(enabledIf: self.addEnabled, execute: { x in
             guard let value = self.itemToAdd.value else {
                 return SignalProducer(error: .badItem)

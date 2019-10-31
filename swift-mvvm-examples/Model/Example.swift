@@ -12,13 +12,13 @@ public enum ExampleType {
     case helloWorld, clickCounter, simpleList
 }
 
-open class Example {
+public class Example {
     
-    open let type: ExampleType
-    open let title: String
-    open let description: String
+    public let type: ExampleType
+    public let title: String
+    public let description: String
     
-    init(type: ExampleType, title: String, description: String) {
+    public init(type: ExampleType, title: String, description: String) {
         self.type = type
         self.title = title
         self.description = description
