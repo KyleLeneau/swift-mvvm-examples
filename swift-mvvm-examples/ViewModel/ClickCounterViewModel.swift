@@ -9,7 +9,6 @@
 import Foundation
 import ReactiveSwift
 import ReactiveCocoa
-import Result
 
 open class ClickCounterViewModel {
 
@@ -23,7 +22,7 @@ open class ClickCounterViewModel {
         return Property(initial: false, then: self.numberOfClicks.producer.map { $0 > 3 })
     }()
     
-    open lazy var clickCountDisplay: SignalProducer<String, NoError> = {
+    open lazy var clickCountDisplay: SignalProducer<String, Never> = {
         return self.numberOfClicks.producer
             .map { return "You've clicked \($0) times" }
     }()
