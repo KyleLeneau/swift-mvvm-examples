@@ -9,14 +9,13 @@
 import Foundation
 import ReactiveSwift
 import ReactiveCocoa
-import Result
 
 open class HelloWorldViewModel {
     
     open let firstName = MutableProperty<String?>("Planet")
     open let lastName = MutableProperty<String?>("Earth")
     
-    open var fullName: SignalProducer<String, NoError> {
+    open var fullName: SignalProducer<String, Never> {
         return firstName.producer
             .combineLatest(with: lastName.producer)
             .map {
